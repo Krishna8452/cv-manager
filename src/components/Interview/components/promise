@@ -1,0 +1,138 @@
+// const fd = Promise.all(
+//     interviewList.map(async (list) => {
+//       const intName = await fetchInterviewerName(list.interviewer);
+//       const appName = await fetchApplicantName(list.applicant);
+
+//       return { intName, appName };
+//     })
+//   )
+//     .then((results) => {
+//       console.log(results, "ssss");
+//   results.map((list) =>{
+//   console.log(list.intName,"this is intname")
+//   console.log(list.appName,"this is appnam")
+// })
+//     })
+//     .catch((error) => {
+//       console.error("Error occurred:", error);
+//     });
+
+
+
+//Interview Form
+
+
+// import React from "react";
+// import { DatePicker } from "@mui/x-date-pickers";
+// import {
+//   TextField,
+//   Button,
+//   Select,
+//   MenuItem,
+//   FormControl,
+//   InputLabel,
+//   Grid,
+// } from "@mui/material";
+// import * as Yup from "yup";
+// import { Formik, Field, Form, ErrorMessage, useFormikContext } from "formik";
+
+// const validationSchema = Yup.object().shape({
+//   interviewer: Yup.string().required("Interviewer is required"),
+//   applicant: Yup.string().required("Applicant is required"),
+//   date: Yup.date().required("Datetime is required"),
+// });
+
+// export default function FormComponent({
+//   initialValues,
+//   onSubmit,
+//   interviewers,
+//   applicants,
+// }) {
+//   return (
+//     <Formik
+//       initialValues={initialValues}
+//       validationSchema={validationSchema}
+//       onSubmit={onSubmit}
+//       enableReinitialize={true}
+//     >
+//       {({ errors, touched, setFieldValue }) => (
+//         <Form>
+//           <Grid
+//             sx={{
+//               display: "grid",
+//               rowGap: "0px",
+//               justifyContent: "center",
+//             }}
+//           >
+//             <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+//               <InputLabel id="interviewer-label">Interviewer</InputLabel>
+//               <Field
+//                 as={Select}
+//                 name="interviewer"
+
+//                 variant="standard"
+//                 labelId="interviewer-label"
+//                 error={touched.interviewer && !!errors.interviewer}
+//               >
+//                 {interviewers.map((interviewer) => (
+//                   <MenuItem key={interviewer.id} value={interviewer.id}>
+//                     {interviewer.interviewerName}
+//                   </MenuItem>
+//                 ))}
+//               </Field>
+//               <ErrorMessage name="interviewer" component="div" />
+//             </FormControl>
+//             <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+//               <InputLabel id="applicant-label">Applicant</InputLabel>
+//               <Field
+//                 as={Select}
+//                 name="applicant"
+//                 variant="standard"
+//                 labelId="applicant-label"
+//                 error={touched.applicant && !!errors.applicant}
+//               >
+//                 {applicants.map((applicant) => (
+//                   <MenuItem key={applicant.id} value={applicant.id}>
+//                     {applicant.firstName} {applicant.lastName}
+//                   </MenuItem>
+//                 ))}
+//               </Field>
+//               <ErrorMessage name="applicant" component="div" />
+//             </FormControl>
+//             {/* <Field
+//               as={TextField}
+//               name="datetime"
+//               label="Datetime"
+//               variant="standard"
+//               sx={{ marginBottom: "16px" }}
+//               error={touched.datetime && !!errors.datetime}
+//               helperText={touched.datetime && errors.datetime}
+//             /> */}
+//             <DatePickerField name="date" label="Date" variant="standard"/>
+//             <Button type="submit" variant="contained" color="primary">
+//               Submit
+//             </Button>
+//           </Grid>
+//         </Form>
+//       )}
+//     </Formik>
+//   );
+// }
+
+// function DatePickerField({ name, label }) {
+//   const { setFieldValue } = useFormikContext();
+
+//   return (
+//     <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+//       <DatePicker
+//         name={name}
+//         label={label}
+//         renderInput={(props) => <TextField {...props} />}
+//         onChange={(date) => {
+//           setFieldValue(name, date);
+//         }}
+//       />
+//       <ErrorMessage name={name} component="div" />
+//     </FormControl>
+//   );
+// }
