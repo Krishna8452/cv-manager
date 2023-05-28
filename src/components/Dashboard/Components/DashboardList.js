@@ -84,7 +84,7 @@ export default function DashboardList({
         </Grid>
         <Grid> </Grid>
       </Grid>
-      {/* <LegendChart /> */}
+      <LegendChart dataList={applicantList} />
     </>
   );
 }

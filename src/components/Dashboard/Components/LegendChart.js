@@ -1,44 +1,65 @@
-// <block:setup:1>
-const data = {
-  labels: "JPT",
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [65, 59, 80, 81, 56, 55, 40],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
-        "rgba(255, 205, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(201, 203, 207, 0.2)",
-      ],
-      borderColor: [
-        "rgb(255, 99, 132)",
-        "rgb(255, 159, 64)",
-        "rgb(255, 205, 86)",
-        "rgb(75, 192, 192)",
-        "rgb(54, 162, 235)",
-        "rgb(153, 102, 255)",
-        "rgb(201, 203, 207)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-// </block:setup>
+import React, { useEffect, useRef } from "react";
+import { Bar } from "react-chartjs-2";
+import { CategoryScale } from "chart.js";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
+Chart.register(CategoryScale);
 
-// <block:config:0>
-const config = {
-  type: "bar",
-  data: data,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
+const applicants = [
+  { name: "John", status: "pending" },
+  { name: "Jane", status: "approved" },
+  { name: "Mike", status: "approved" },
+  { name: "Sarah", status: "pending" },
+  { name: "Tom", status: "approved" },
+];
+
+function LegendChart({ dataList }) {
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    const countByStatus = dataList.reduce(
+      (count, applicant) => {
+        count[applicant.status] += 1;
+        return count;
       },
-    },
-  },
-};
-// </block:config>
+      { pending: 0, hired: 0 }
+    );
+
+    const chartData = {
+      labels: ["Pending", "Approved"],
+      datasets: [
+        {
+          data: [countByStatus.pending, countByStatus.hired],
+          backgroundColor: ["#FF6384", "#36A2EB"],
+        },
+      ],
+    };
+
+    const chartOptions = {
+      responsive: true,
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    };
+
+    const chart = new Chart(chartRef.current, {
+      type: "bar",
+      data: chartData,
+      options: chartOptions,
+    });
+
+    return () => {
+      chart.destroy();
+    };
+  }, []);
+
+  return <canvas ref={chartRef} />;
+}
+
+export default LegendChart;

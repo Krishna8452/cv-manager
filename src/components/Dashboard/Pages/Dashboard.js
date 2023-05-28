@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import DashboardList from '../Components/DashboardList'
+import React, { useEffect, useState } from "react";
+import DashboardList from "../Components/DashboardList";
+import LegendChart from "../Components/LegendChart";
 
 export default function Dashboard() {
-const [applicantList, setApplicantList] = useState([])
-const [interviewerList, setInterviewersList] = useState([])
-const [interviewList, setInterviewList] = useState([])
-const [offerLetterList, setOfferLetterList] = useState([])
-
+  const [applicantList, setApplicantList] = useState([]);
+  const [interviewerList, setInterviewersList] = useState([]);
+  const [interviewList, setInterviewList] = useState([]);
+  const [offerLetterList, setOfferLetterList] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -42,17 +42,16 @@ const [offerLetterList, setOfferLetterList] = useState([])
     }
   };
 
-  
-  console.log()
- 
+  console.log();
+
   return (
     <>
-    <DashboardList
-     applicantList={applicantList}
-     interviewerList={interviewerList}
-     interviewList={interviewList}
-     offerLetterList={offerLetterList}
-    />
+      <DashboardList
+        applicantList={applicantList}
+        interviewerList={interviewerList}
+        interviewList={interviewList}
+        offerLetterList={offerLetterList}
+      />
     </>
-  )
+  );
 }

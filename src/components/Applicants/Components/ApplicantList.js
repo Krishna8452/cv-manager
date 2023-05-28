@@ -98,21 +98,17 @@ function ApplicantList() {
 
   useEffect(() => {
     fetchData();
-    var startRecord = Math.max(currentPage - 1, 0) * offset;
-    var endRecord = startRecord + offset;
-    var paginatedItems = list.slice(startRecord, endRecord);
-    setPaginatedItems(paginatedItems);
   }, []);
 
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:3031/applicants");
       const data = await response.json();
+      debugger;
       var myList = data;
       setList(data);
       const totaldata = data.length;
       setTotalData(totaldata);
-
       var pagesize = Math.ceil(totaldata / offset);
       setPageSize(pagesize);
       var startRecord = Math.max(currentPage - 1, 0) * offset;
@@ -139,7 +135,8 @@ function ApplicantList() {
   const [storeId, setStoreId] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedItems, setPaginatedItems] = useState([]);
-  const handleChange = (event) => {
+
+  const handleChange = (event, value) => {
     debugger;
     var currentPage = event.target.innerText;
     setCurrentPage(currentPage);
@@ -166,7 +163,7 @@ function ApplicantList() {
   }
   function deleteApplicant(id) {
     axios.delete(`http://localhost:3031/applicants/${id}`);
-    setList((prevApplicants) =>
+    setCurrentPage((prevApplicants) =>
       prevApplicants.filter((applicant) => applicant.id !== id)
     );
     setOpen(false);
@@ -313,6 +310,8 @@ function ApplicantList() {
               </DialogActions>
             </Dialog>
             <Pagination
+              siblingCount={1}
+              boundaryCount={1}
               count={pageSize}
               onChange={handleChange}
               color="primary"
