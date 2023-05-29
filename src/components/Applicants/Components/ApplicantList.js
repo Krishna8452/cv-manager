@@ -30,9 +30,7 @@ import Paper from "@mui/material/Paper";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
-import ApplicantForm from "./ApplicantForm";
 import { Link, useNavigate } from "react-router-dom";
-import Modal from "@mui/material/Modal";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Pagination from "@mui/material/Pagination";
@@ -226,7 +224,9 @@ function ApplicantList() {
               <TableHead>
                 <TableCell size="small">Name</TableCell>
                 <TableCell size="small">Email</TableCell>
-                <TableCell size="small">Action</TableCell>
+                <TableCell size="small">Phone Number</TableCell>
+                <TableCell size="small">Phone Number</TableCell>
+                <TableCell size="small">Status</TableCell>
               </TableHead>
               {list
                 .filter((user) =>
@@ -246,6 +246,8 @@ function ApplicantList() {
                         </Button>
                       </TableCell>
                       <TableCell size="small">{applicant.email}</TableCell>
+                      <TableCell>{applicant.phoneNumber}</TableCell>
+                      <TableCell>{applicant.status}</TableCell>
                       <TableCell size="small">
                         <ButtonGroup
                           variant="outlined"

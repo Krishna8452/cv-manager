@@ -24,29 +24,31 @@ export const ApplicantDetails = ({ details, onClick }) => {
     "pending",
     "hired",
   ];
-const [offerLettersList, setOfferlettersList] = useState([])
-useEffect(() => {
-  fetchData();
-},[]);
+  const [offerLettersList, setOfferlettersList] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-const fetchData = async () => {
-  try {
-    const response =fetch("http://localhost:3031/offerLetters");
-    const data = await response.json();
-    setOfferlettersList(data);
-  } catch (error) {
-    console.log("Error fetching data:", error);
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:3031/offerLetters");
+      const data = await response.json();
+      setOfferlettersList(data);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+  function fetch(id) {
+    const applicantOfferLetter = offerLettersList.filter(
+      (data) => data.id === id
+    );
+    setOfferlettersList(applicantOfferLetter);
   }
-};
-function fetch(id) {
-  const applicantOfferLetter = offerLettersList.filter((data) => data.id === id);
-  setOfferlettersList(applicantOfferLetter)
-}
-  console.log(offerLettersList, "hr");
+  console.log(offerLettersList, "hrr");
   return (
     <>
-      <TableContainer component={Paper}>
-      <Box sx={{ marginBottom: 1 }}>
+      <TableContainer sx={{ display: "flex", paddingTop: 2, paddingBottom:2, }} component={Paper}>
+        <Box sx={{ marginBottom: 1, width: "90%" }}>
           <Stepper activeStep={steps.indexOf(detail.status)} alternativeLabel>
             {steps.map((step, index) => (
               <Step key={index}>
@@ -55,15 +57,22 @@ function fetch(id) {
             ))}
           </Stepper>
         </Box>
-        <Box display={"flex"}>
-          <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "right",
+            alignContent: "right",
+            gap:'1.5rem'
+          }}
+        >
           <Box
             style={{
               color: "red",
               border: "2px",
               justifyContent: "center",
               alignItem: "center",
-              gap: "3rem",
             }}
           >
             <Link to={`/applicant/edit/${detail.id}`}>
@@ -72,56 +81,77 @@ function fetch(id) {
               </IconButton>
             </Link>
           </Box>
+
           <Box
             style={{
-              display: "flex",
-              color: "red",
               border: "2px",
-              justifyContent: "right  ",
+              justifyContent: "right",
             }}
           >
-            <IconButton onClick={onClick} title="Cancel">
+            <IconButton color={"red"} onClick={onClick} title="Cancel">
               <CancelIcon />
             </IconButton>
           </Box>
         </Box>
       </TableContainer>
 
-        <Divider />
-      <Box sx={{ display:"flex"}}>
-        <TableContainer sx={{marginLeft:2, height:300, marginTop:3, width:'30%'}} component={Paper}>
-        <Box  sx={{ marginLeft:2, textAlign:'center'}}>
-          <h1>Personal Information</h1>
-          <Typography>Appliant ID:  {detail.id}</Typography>
-          <Typography>Full Name:  {detail.firstName} {detail.lastName}</Typography>
-          <Typography>Email: {detail.email}</Typography>
-          <Typography>Phone Number: {detail.phoneNumber}</Typography>
-          <Typography>Reference: {detail.reference}</Typography>
-        </Box>
-      </TableContainer>
-      <TableContainer sx={{marginLeft:2, height:300, marginTop:3, width:'30%'}} component={Paper}>
-        <Box  sx={{ marginLeft:2, textAlign:'center'}}>
-          <h1>Technical Information</h1>
-          <Typography>Position:  {detail.level}</Typography>
-          <Typography> Technology:  {detail.technology?.map((list) => {
+      <Divider />
+      <Box sx={{ display: "flex" }}>
+        <TableContainer
+          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <h2>Personal Information</h2>
+            <Typography>Appliant ID: {detail.id}</Typography>
+            <Typography>
+              Full Name: {detail.firstName} {detail.lastName}
+            </Typography>
+            <Typography>Email: {detail.email}</Typography>
+            <Typography>Phone Number: {detail.phoneNumber}</Typography>
+            <Typography>Reference: {detail.reference}</Typography>
+          </Box>
+        </TableContainer>
+        <TableContainer
+          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <h2>Technical Information</h2>
+            <Typography>Position: {detail.level}</Typography>
+            <Typography>             
+              Technology:{""}
+              {detail.technology?.map((list) => {
+                return <> {list}, </>;
+              })}
+            </Typography>
+            <Typography>
+              Expected Salary: {detail.salary_expectation}
+            </Typography>
+            <Typography>Resume: {detail.resume}</Typography>
+          </Box>
+        </TableContainer>
+        <TableContainer
+          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <h1>Offer Letter</h1>
+            <Typography>Position: {detail.level}</Typography>
+            <Typography>
+              {" "}
+              Technology:{" "}
+              {detail.technology?.map((list) => {
                 return <>{list}, </>;
-              })}</Typography>
-          <Typography>Expected Salary: {detail.salary_expectation}</Typography>
-          <Typography>Resume: {detail.resume}</Typography>
-        </Box>
-      </TableContainer>
-      <TableContainer sx={{marginLeft:2, height:300, marginTop:3, width:'30%'}} component={Paper}>
-        <Box  sx={{ marginLeft:2, textAlign:'center'}}>
-          <h1>Offer Letter</h1>
-          <Typography>Position:  {detail.level}</Typography>
-          <Typography> Technology:  {detail.technology?.map((list) => {
-                return <>{list}, </>;
-              })}</Typography>
-          <Typography>Expected Salary: {detail.salary_expectation}</Typography>
-          <Typography>Resume: {detail.resume}</Typography>
-        </Box>
-      </TableContainer>
-      </Box>  
+              })}
+            </Typography>
+            <Typography>
+              Expected Salary: {detail.salary_expectation}
+            </Typography>
+            <Typography>Resume: {detail.resume}</Typography>
+          </Box>
+        </TableContainer>
+      </Box>
     </>
   );
 };

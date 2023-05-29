@@ -36,8 +36,6 @@ export default function InterviewList() {
   const [interviewList, setInterviewList] = useState([]);
   const [open, setOpen] = useState(false);
   const [storeId, setStoreId] = useState();
-  // const [interviewerName, setInterviewerName] = useState({});
-  // const [applicantName, setApplicantName] = useState({});
 
   useEffect(() => {
     fetchData();
@@ -55,25 +53,6 @@ export default function InterviewList() {
   {
     console.log(interviewList, "hhh");
   }
-
-  // const fetchInterviewerName = async (id) => {
-  //   try {
-  //     const response = await fetch(`http://localhost:3031/interviewers/${id}`);
-  //     const data = await response.json();
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Error fetching interviewer:", error);
-  //   }
-  // };
-  // const fetchApplicantName = async (id) => {
-  //   try {
-  //     const response = await fetch(`http://localhost:3031/applicants/${id}`);
-  //     const data = await response.json();
-  //     return data;
-  //   } catch (error) {
-  //     console.error("Error fetching applicant:", error);
-  //   }
-  // };
 
   const handleClickOpen = useCallback(
     (id) => {
@@ -122,21 +101,15 @@ export default function InterviewList() {
          
         </Box>
       </TableContainer>
-      <Modal
-        open={detailMode}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      {detailMode &&
         <Box sx={style}>
           <InterviewDetail
             onClick={() => setDetailMode(false)}
             details={details}
           />
         </Box>
-      </Modal>
-
-      <TableContainer sx={{ marginTop: 1 }} component={Paper}>
+        }
+      {!detailMode && <TableContainer sx={{ marginTop: 1 }} component={Paper}>
         <Table sx={{ minWidth: 650 }}>
           <TableHead>
             <TableCell size="small">Interviewer </TableCell>
@@ -208,6 +181,7 @@ export default function InterviewList() {
           </DialogActions>
         </Dialog>
       </TableContainer>
+      }
     </>
   );
 }
@@ -255,12 +229,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: "55%",
+  left: "52%",
   transform: "translate(-50%, -50%)",
   width: 600,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   borderRadius: "10px",
   boxShadow: 24,
   maxHeight: "50%",

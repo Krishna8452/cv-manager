@@ -5,17 +5,16 @@
       "middleName": "",
       "lastName": "Bhandari",
       "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "phoneNumber": "9800768098",
       "level": "Senior",
       "reference": "sdxfcgvhjbnkml,",
       "technology": [
-        "Node.js",
         "React"
       ],
       "experience": "likujhgfdsa",
       "status": "first_interview",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "salary_expectation": "Rs: 200000",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 2
     },
     {
@@ -252,6 +251,13 @@
       "applicant": 7,
       "letterFile": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 2
+    },
+    {
+      "editor": "<p>sdsdsdsd</p>",
+      "status": "dsdsdsd",
+      "applicant": 2,
+      "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "id": 3
     }
   ],
   "assessmentTest": [
