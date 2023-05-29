@@ -154,15 +154,14 @@ function ApplicantList() {
   };
   function viewApplicant(id) {
     const applicantDetails = list.filter((data) => data.id === id);
+    console.log(applicantDetails);
     setShowDetail(true);
     setDetails(applicantDetails);
     console.log(details, "aaaaa");
   }
   function deleteApplicant(id) {
     axios.delete(`http://localhost:3031/applicants/${id}`);
-    setList((list) =>
-    list.filter((applicant) => applicant.id !== id)
-    );
+    setList((list) => list.filter((applicant) => applicant.id !== id));
     setOpen(false);
   }
 
