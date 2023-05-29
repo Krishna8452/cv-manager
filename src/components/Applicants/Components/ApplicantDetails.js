@@ -31,7 +31,9 @@ export const ApplicantDetails = ({ details, onClick }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:3031/offerLetters/${detail.id}`);
+      const response = await fetch(
+        `http://localhost:3031/offerLetters/${detail.id}`
+      );
       const data = await response.json();
       setOfferlettersList(data);
     } catch (error) {
@@ -41,7 +43,10 @@ export const ApplicantDetails = ({ details, onClick }) => {
   console.log(offerLettersList, "hrr");
   return (
     <>
-      <TableContainer sx={{ display: "flex", paddingTop: 2, paddingBottom:2, }} component={Paper}>
+      <TableContainer
+        sx={{ display: "flex", paddingTop: 2, paddingBottom: 2 }}
+        component={Paper}
+      >
         <Box sx={{ marginBottom: 1, width: "90%" }}>
           <Stepper activeStep={steps.indexOf(detail.status)} alternativeLabel>
             {steps.map((step, index) => (
@@ -58,7 +63,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
             justifyContent: "right",
             alignItems: "right",
             alignContent: "right",
-            gap:'1.5rem'
+            gap: "1.5rem",
           }}
         >
           <Box
@@ -91,7 +96,6 @@ export const ApplicantDetails = ({ details, onClick }) => {
 
       <Divider />
       <Box sx={{ display: "flex" }}>
-
         <TableContainer
           sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
           component={Paper}
@@ -115,7 +119,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
             <h2>Technical Information</h2>
             <Typography>Position: {detail.level}</Typography>
-            <Typography>             
+            <Typography>
               Technology:{""}
               {detail.technology?.map((list) => {
                 return <> {list}, </>;
@@ -127,21 +131,22 @@ export const ApplicantDetails = ({ details, onClick }) => {
             <Typography>Resume: {detail.resume}</Typography>
           </Box>
         </TableContainer>
-      
-        { offerLettersList && 
-        <TableContainer
+
+        {offerLettersList && (
+          <TableContainer
             sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
             component={Paper}
           >
             <Box sx={{ marginLeft: 2, textAlign: "center" }}>
               <h1>Offer Letter</h1>
               <Typography>editor: {offerLettersList.editor}</Typography>
+              <Typography>Status: {offerLettersList.status}</Typography>
               <Typography>
-                Status: {offerLettersList.status}
+                Letter File: {offerLettersList.letterFile}
               </Typography>
-              <Typography>Letter File: {offerLettersList.letterFile}</Typography>
             </Box>
-        </TableContainer>}
+          </TableContainer>
+        )}
       </Box>
     </>
   );
