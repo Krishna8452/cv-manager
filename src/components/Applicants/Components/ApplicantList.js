@@ -154,7 +154,6 @@ function ApplicantList() {
   };
   function viewApplicant(id) {
     const applicantDetails = list.filter((data) => data.id === id);
-    console.log(applicantDetails);
     setShowDetail(true);
     setDetails(applicantDetails);
     console.log(details, "aaaaa");
