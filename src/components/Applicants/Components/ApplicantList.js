@@ -167,7 +167,7 @@ function ApplicantList() {
   return (
     <div style={{ height: "100%" }}>
       <TableContainer
-        sx={{ display: "flex", marginTop: 1, marginBottom: 2 }}
+        sx={{ display: "flex", marginTop: 1, marginBottom:1 }}
         component={Paper}
       >
         <IconButton onClick={() => navigate("/dashboard")}>

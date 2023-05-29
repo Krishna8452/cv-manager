@@ -7,6 +7,7 @@ import {
   Box,
   Divider,
   Typography,
+  Button,
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TableContainer from "@mui/material/TableContainer";
@@ -18,7 +19,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
   const detail = details[0];
 
   const steps = [
-    "shortlisted",
+    "shortListed",
     "first_interview",
     "second_interview",
     "pending",
@@ -36,6 +37,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
       );
       if (response.status !== 404) {
         const data = await response.json();
+        setOfferlettersList(data);
       } else {
         setOfferlettersList(null);
       }
@@ -48,10 +50,10 @@ export const ApplicantDetails = ({ details, onClick }) => {
   return (
     <>
       <TableContainer
-        sx={{ display: "flex", paddingTop: 2, paddingBottom: 2 }}
+        sx={{ display: "flex", paddingTop:1, paddingBottom:1 }}
         component={Paper}
       >
-        <Box sx={{ marginBottom: 1, width: "90%" }}>
+        <Box sx={{ marginBottom: 1, width: "105%",marginTop:1 }}>
           <Stepper activeStep={steps.indexOf(detail.status)} alternativeLabel>
             {steps.map((step, index) => (
               <Step key={index}>
@@ -99,9 +101,9 @@ export const ApplicantDetails = ({ details, onClick }) => {
       </TableContainer>
 
       <Divider />
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:1}}>
         <TableContainer
-          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          sx={{ height: 275, width: "33%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -117,7 +119,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
         </TableContainer>
 
         <TableContainer
-          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          sx={{ marginLeft: 2, height: 275,  width: "33%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -136,21 +138,52 @@ export const ApplicantDetails = ({ details, onClick }) => {
           </Box>
         </TableContainer>
 
-        {offerLettersList && (
-          <TableContainer
-            sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
-            component={Paper}
-          >
-            <Box sx={{ marginLeft: 2, textAlign: "center" }}>
-              <h1>Offer Letter</h1>
-              <Typography>editor: {offerLettersList.editor}</Typography>
-              <Typography>Status: {offerLettersList.status}</Typography>
-              <Typography>
-                Letter File: {offerLettersList.letterFile}
-              </Typography>
+        <TableContainer
+          sx={{ marginLeft: 2, height: 275, width: "33%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <Box sx={{display:'flex'}}>
+              <h2 style={{marginLeft:'9rem'}}>Offer Letter</h2>
+              <Box sx={{flexGrow:1}}/>
+              {offerLettersList && <Button
+                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                color="success"
+                size="small"
+                variant="outlined"
+                component={Link}
+                to={`/offerLetter/edit/${offerLettersList.id}`}
+              >
+                edit
+              </Button>}
             </Box>
-          </TableContainer>
-        )}
+            {offerLettersList ? (
+              <>
+                <Typography>editor: {offerLettersList.editor}</Typography>
+                <Typography>Status: {offerLettersList.status}</Typography>
+                <Typography>
+                  Letter File: {offerLettersList.letterFile}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                No offer letter created, Click below button if you want to
+                create.
+                <br />
+                <br />
+                <Button
+                  color="success"
+                  size="small"
+                  variant="outlined"
+                  component={Link}
+                  to="/offerLetter/create"
+                >
+                  Create
+                </Button>
+              </Typography>
+            )}
+          </Box>
+        </TableContainer>
       </Box>
     </>
   );

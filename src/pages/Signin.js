@@ -36,7 +36,7 @@ const Signin = () => {
           style={{
             justifyContent: "center",
             textAlign: "center",
-            marginLeft: "44rem",
+            marginLeft: "41.5rem",
           }}
         >
           <GoogleButton onClick={handleGoogleSignIn} />
