@@ -1,21 +1,6 @@
 {
   "applicants": [
     {
-      "firstName": "Krishna",
-      "middleName": "",
-      "lastName": "Chaudhary",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
-      "level": "Associate",
-      "reference": "sdxfcgvhjbnkml,",
-      "technology": ["Node.js", "React"],
-      "experience": "",
-      "status": "pending",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (2).docx",
-      "id": 3
-    },
-    {
       "firstName": "puzan",
       "middleName": "",
       "lastName": "Chaudhary",
@@ -23,7 +8,10 @@
       "phoneNumber": 9800768098,
       "level": "Associate",
       "reference": "sdxfcgvhjbnkml,",
-      "technology": ["Node.js", "React"],
+      "technology": [
+        "Node.js",
+        "React"
+      ],
       "experience": "",
       "status": "pending",
       "salary_expectation": "Rs: 20000",
@@ -38,9 +26,12 @@
       "phoneNumber": 9800768098,
       "level": "Senior",
       "reference": "sdxfcgvhjbnkml,",
-      "technology": ["Node.js", "React"],
+      "technology": [
+        "Node.js",
+        "React"
+      ],
       "experience": "likujhgfdsa",
-      "status": "first interview",
+      "status": "first_interview",
       "salary_expectation": "Rs: 20000",
       "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 4
@@ -53,9 +44,11 @@
       "phoneNumber": 9800768098,
       "level": "Associate",
       "reference": "sdxfcgvhjbnkml,",
-      "technology": ["Node.js"],
+      "technology": [
+        "Node.js"
+      ],
       "experience": "77777",
-      "status": "second interview",
+      "status": "second_interview",
       "salary_expectation": "Rs: 20000",
       "file": "C:\\fakepath\\New Text Document.txt",
       "id": 5
@@ -68,12 +61,84 @@
       "phoneNumber": 9800768098,
       "level": "Associate",
       "reference": "hnbgfvdcs",
-      "technology": ["React", "Node.js"],
+      "technology": [
+        "React",
+        "Node.js"
+      ],
       "experience": "444455",
       "status": "hired",
       "salary_expectation": "Minima consectetur p",
       "file": "C:\\fakepath\\New Text Document.txt",
       "id": 6
+    },
+    {
+      "firstName": "Krishna",
+      "middleName": "",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": 9800768098,
+      "level": "Associate",
+      "reference": "sdxfcgvhjbnkml,",
+      "technology": [
+        "React"
+      ],
+      "experience": "likujhgfdsa",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 8
+    },
+    {
+      "firstName": "Krishna",
+      "middleName": "chand",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": 9800768098,
+      "level": "Junior",
+      "reference": "sdxfcgvhjbnkml,",
+      "technology": [
+        "React"
+      ],
+      "experience": "",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 9
+    },
+    {
+      "firstName": "Krishna",
+      "middleName": "chand",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": 9800768098,
+      "level": "Junior",
+      "reference": "hnbgfvdcs",
+      "technology": [
+        "React"
+      ],
+      "experience": "likujhgfdsa",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "id": 10
+    },
+    {
+      "firstName": "Krishna",
+      "middleName": "",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": 9800768098,
+      "level": "Junior",
+      "reference": "sdxfcgvhjbnkml,",
+      "technology": [
+        "Node.js",
+        "React"
+      ],
+      "experience": "likujhgfdsa",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "id": 11
     }
   ],
   "interviewers": [
@@ -98,28 +163,39 @@
   ],
   "interviews": [
     {
-      "interviewers": [2, 1, 3],
-      "applicant": 2,
-      "date": "2023-05-08T18:15:00.000Z",
-      "time": "2023-05-26T07:20:00.221Z",
+      "interviewers": [
+        2,
+        1
+      ],
+      "applicant": 7,
+      "date": "2023-04-30T18:15:00.000Z",
+      "time": "2023-05-29T06:15:00.771Z",
       "id": 29
     },
     {
-      "interviewers": [2, 1],
+      "interviewers": [
+        2,
+        1
+      ],
       "applicant": 3,
       "date": "2023-05-01T18:15:00.000Z",
       "time": "2023-05-26T08:25:00.261Z",
       "id": 30
     },
     {
-      "interviewers": [1, 2],
+      "interviewers": [
+        1,
+        2
+      ],
       "applicant": 3,
       "date": "2023-05-09T18:15:00.000Z",
       "time": "2023-05-26T20:25:00.465Z",
       "id": 31
     },
     {
-      "interviewers": [1],
+      "interviewers": [
+        1
+      ],
       "applicant": 4,
       "date": "2023-05-08T18:15:00.000Z",
       "time": "2023-05-27T07:20:00.050Z",

@@ -41,8 +41,8 @@ export default function FormComponent({ initialValues, onSubmit }) {
   const technology = ["React", "Node.js", "JavaScript", "DotNet", "CSS"];
   const status = [
     "shortListed",
-    "first interview",
-    "second interview",
+    "first_interview",
+    "second_interview",
     "pending",
     "hired",
   ];

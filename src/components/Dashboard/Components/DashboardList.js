@@ -12,15 +12,7 @@ export default function DashboardList({
   interviewList,
   offerLetterList,
 }) {
-  const [userData, setUserData] = useState({
-    labels: applicantList.map((data) => data.status),
-    datasets: [
-      {
-        label: "Status",
-        data: applicantList.map((data) => data),
-      },
-    ],
-  });
+
   const list = [
     {
       route: "applicant",
@@ -57,9 +49,9 @@ export default function DashboardList({
           {list.map((list) => (
             <Card
               sx={{
-                height: 130,
-                width: 220,
-                bgcolor: "#f7c7c6",
+                height: 140,
+                width: 300,
+                bgcolor: "white",
                 borderRadius: 3,
               }}
               component={Paper}
@@ -82,9 +74,12 @@ export default function DashboardList({
             </Card>
           ))}
         </Grid>
-        <Grid> </Grid>
+        
       </Grid>
-      <LegendChart dataList={applicantList} />
+      <TableContainer sx={{height:400,width:600, marginLeft:5,color:'#f44336',marginTop:3}} component={Paper}>
+          {applicantList && applicantList.length  > 0 &&   <LegendChart dataList={applicantList} />}
+       
+       </TableContainer>
     </>
   );
 }
@@ -92,15 +87,15 @@ export default function DashboardList({
 const styles = {
   circle: {
     marginTop: "0.5rem",
-    marginLeft: "4.5rem",
-    width: "1.5rem",
-    height: "1.5rem",
+    marginLeft: "6.25rem",
+    width: "2rem",
+    height: "2rem",
     borderRadius: "50%",
-    backgroundColor: "#6e1a16",
+    backgroundColor: "#f44336",
     color: "white",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: "1rem",
+    fontSize: "1rem"
   },
 };
