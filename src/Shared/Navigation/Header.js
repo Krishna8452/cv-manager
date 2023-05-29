@@ -64,7 +64,7 @@ export default function Header() {
         appLogo:{
             borderRadius:0,
             width:163.5,
-            height:80,
+            height:"4.5rem",
             ml:2,
             cursor:'pointer'
         }

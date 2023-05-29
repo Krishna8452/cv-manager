@@ -12,7 +12,6 @@ export default function DashboardList({
   interviewList,
   offerLetterList,
 }) {
-
   const list = [
     {
       route: "applicant",
@@ -45,7 +44,7 @@ export default function DashboardList({
         <h2>Main Dashboard</h2>
       </TableContainer>
       <Grid sx={{ display: "flex", gap: 2 }}>
-        <Grid sx={{ display: "flex", gap: 2, marginLeft: "1rem" }}>
+        <Grid sx={{ display: "flex", gap: 2, marginLeft: 1 }}>
           {list.map((list) => (
             <Card
               sx={{
@@ -68,18 +67,30 @@ export default function DashboardList({
                 }}
               >
                 <Button component={Link} to={`/${list.route}`} size="small">
-                  <Typography variant="inherit">visit</Typography>
+                  <Typography
+                    sx={{ color: "black", fontSize: "14px" }}
+                    variant="inherit"
+                  >
+                    visit
+                  </Typography>
                 </Button>
               </Box>
             </Card>
           ))}
+          <Grid>Hello</Grid>
         </Grid>
-        
       </Grid>
-      <TableContainer sx={{height:400,width:600, marginLeft:5,color:'#f44336',marginTop:3}} component={Paper}>
-          {applicantList && applicantList.length  > 0 &&   <LegendChart dataList={applicantList} />}
-       
-       </TableContainer>
+      <TableContainer
+        sx={{ height: 360, width: 600, marginLeft: 1, marginTop: 2 }}
+        component={Paper}
+      >
+        {applicantList && applicantList.length > 0 && (
+          <LegendChart dataList={applicantList} />
+        )}
+        <Typography sx={{ textAlign: "center", marginTop: 2 }}>
+          Applicant Status
+        </Typography>
+      </TableContainer>
     </>
   );
 }
@@ -96,6 +107,6 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: "1rem"
+    fontSize: "1rem",
   },
 };

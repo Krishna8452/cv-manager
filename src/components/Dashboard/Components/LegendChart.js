@@ -27,7 +27,7 @@ function LegendChart({ dataList }) {
       datasets: [
         {
           data: [countByStatus.shortListed, countByStatus.first_interview, countByStatus.second_interview, countByStatus.pending, countByStatus.hired],
-          backgroundColor: ["#f44336", "#f44336"],
+          backgroundColor: ["#f44336", "#66f2e4","#bc62e3","#5beb6c","#f55698"],
         },
       ],
     };

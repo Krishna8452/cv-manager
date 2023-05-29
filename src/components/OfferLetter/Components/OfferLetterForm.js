@@ -10,8 +10,7 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
-  Grid,
+  InputLabel
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -21,10 +20,9 @@ import Paper from "@mui/material/Paper";
 const validationSchema = Yup.object().shape({
   status: Yup.string().required("Status is required"),
   letterFile: Yup.mixed().required("Letter file is required"),
-  editor:Yup.string().required('content is required')
+  editor:Yup.string().required('content is required'),
+  applicant:Yup.string().required('select applicant')
 });
-
-
 const OfferLetterForm = () => {
 const {id}= useParams()
 const navigate =useNavigate()
@@ -42,14 +40,15 @@ const navigate =useNavigate()
   },[]);
 
   const handleSubmit = (values) => {
-     console.log(values,'valuessss')
+    
     if(id){
-      axios.put(`http://localhost:3031/offerLetter/${id}`,values)
-      navigate('/applicant')
+      axios.put(`http://localhost:3031/offerLetters/${id}`,values)
+      navigate('/offerLetter')
    
     }else{
-      axios.post('http://localhost:3031/offerLetter',values)
-      navigate('/applicant')
+
+      axios.post('http://localhost:3031/offerLetters',values)
+      navigate('/offerLetter')
     }
     console.log(values);
   };
@@ -63,7 +62,9 @@ const navigate =useNavigate()
       </TableContainer>
       <Formik
         initialValues={{
+          editor:"",
           status: "",
+          applicant:"",
           letterFile: null,
         }}
         validationSchema={validationSchema}

@@ -20,7 +20,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-
 export default function  OfferLetterList(){
 const navigate = useNavigate()
 

@@ -50,23 +50,23 @@ export default function AssessmentTestFormComponent({initialValues,applicants, o
                  
                   />
                 </FormControl>
-            <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
-              <InputLabel id="applicant-label">Select Applicant</InputLabel>
-              <Field
-                as={Select}
-                name="applicant"
-                variant="standard"
-                labelId="applicant-label"
-                error={touched.applicant && !!errors.applicant}
-              >
-                {applicants.map((applicant) => (
-                  <MenuItem key={applicant.id} value={applicant.id}>
-                    {applicant.firstName} {applicant.lastName}
-                  </MenuItem>
-                ))}
-              </Field>
-              <ErrorMessage name="applicant" component="div" />
-            </FormControl>
+                <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+                  <InputLabel id="applicant-label">Select Applicant</InputLabel>
+                  <Field
+                    as={Select}
+                    name="applicant"
+                    variant="standard"
+                    labelId="applicant-label"
+                    error={touched.applicant && !!errors.applicant}
+                  >
+                    {applicants.map((applicant) => (
+                      <MenuItem key={applicant.id} value={applicant.id}>
+                        {applicant.firstName} {applicant.lastName}
+                      </MenuItem>
+                    ))}
+                  </Field>
+                  <ErrorMessage name="applicant" component="div" />
+                </FormControl>
             <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
             <InputLabel id="evaluation-label">evaluation</InputLabel>
                   <Field
@@ -76,7 +76,6 @@ export default function AssessmentTestFormComponent({initialValues,applicants, o
                     variant="standard"
                     error={touched.evaluation && !!errors.evaluation}
                     value={values.evaluation}
-                    sx={{ marginBottom: "16px", width: "20rem" }}
                   >
                     {evaluation.map((evaluation) => (
                       <MenuItem key={evaluation} value={evaluation}>
