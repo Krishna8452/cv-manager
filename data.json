@@ -18,107 +18,107 @@
       "id": 2
     },
     {
-      "firstName": "pookam",
+      "firstName": "Aanisha",
       "middleName": "",
-      "lastName": "Chaudhary",
+      "lastName": "Manandhar",
       "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "phoneNumber": "9800768098",
       "level": "Associate",
       "reference": "sdxfcgvhjbnkml,",
       "technology": [
-        "Node.js"
+        "React"
       ],
       "experience": "77777",
       "status": "second_interview",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\New Text Document.txt",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 3
     },
     {
-      "firstName": "pookam",
+      "firstName": "Beerav",
       "middleName": "",
-      "lastName": "Chaudhary",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "lastName": "Bhattarai",
+      "email": "beerav@gmail.com",
+      "phoneNumber": "9800768098",
       "level": "Associate",
       "reference": "sdxfcgvhjbnkml,",
       "technology": [
-        "Node.js"
+        "Node.js",
+        "React"
       ],
       "experience": "77777",
-      "status": "second_interview",
+      "status": "shortListed",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\New Text Document.txt",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 5
     },
     {
-      "firstName": "pookam",
+      "firstName": "Poojan",
       "middleName": "",
-      "lastName": "Chaudhary",
+      "lastName": "Bhattarai",
       "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "phoneNumber": "9800768098",
       "level": "Associate",
-      "reference": "sdxfcgvhjbnkml,",
+      "reference": "Facebook Page",
       "technology": [
-        "Node.js"
+        "React"
       ],
       "experience": "77777",
       "status": "second_interview",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\New Text Document.txt",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 6
     },
     {
-      "firstName": "rahhh",
+      "firstName": "Aman",
       "middleName": "",
-      "lastName": "Chaudhary",
+      "lastName": "Dangol",
       "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "phoneNumber": "9800768098",
       "level": "Associate",
       "reference": "hnbgfvdcs",
       "technology": [
-        "React",
         "Node.js"
       ],
       "experience": "444455",
       "status": "hired",
       "salary_expectation": "Minima consectetur p",
-      "file": "C:\\fakepath\\New Text Document.txt",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 7
     },
     {
-      "firstName": "Krishna",
+      "firstName": "Dinesh",
       "middleName": "",
       "lastName": "Chaudhary",
       "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
+      "phoneNumber": "9800768098",
       "level": "Associate",
+      "reference": "linkedIn",
+      "technology": [
+        "React"
+      ],
+      "experience": "1 years of experience",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 8
+    },
+    {
+      "firstName": "Sadip",
+      "middleName": "chand",
+      "lastName": "Budhathoki",
+      "email": "sandip@gmail.com",
+      "phoneNumber": "9800768098",
+      "level": "Junior",
       "reference": "sdxfcgvhjbnkml,",
       "technology": [
         "React",
         "Node.js"
       ],
       "experience": "likujhgfdsa",
-      "status": "shortListed",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
-      "id": 8
-    },
-    {
-      "firstName": "Krishna",
-      "middleName": "chand",
-      "lastName": "Chaudhary",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": "9800768098",
-      "level": "Junior",
-      "reference": "sdxfcgvhjbnkml,",
-      "technology": [
-        "React"
-      ],
-      "experience": "likujhgfdsa",
       "status": "pending",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 9
     },
     {
@@ -137,6 +137,23 @@
       "salary_expectation": "Rs: 20000",
       "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 10
+    },
+    {
+      "firstName": "Sagar",
+      "middleName": "Rana",
+      "lastName": "Magar",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": "9800768098",
+      "level": "Junior",
+      "reference": "friends",
+      "technology": [
+        "Node.js"
+      ],
+      "experience": "likujhgfdsa",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "id": 11
     }
   ],
   "interviewers": [
@@ -227,14 +244,24 @@
     },
     {
       "interviewers": [
+        3
+      ],
+      "applicant": 7,
+      "date": "2023-04-30T18:15:00.000Z",
+      "time": "2023-05-28T19:15:00.193Z",
+      "id": 35
+    },
+    {
+      "interviewers": [
         3,
         4,
+        5,
         6
       ],
-      "applicant": 3,
+      "applicant": 2,
       "date": "2023-05-15T18:15:00.000Z",
-      "time": "2023-05-29T08:25:00.478Z",
-      "id": 35
+      "time": "2023-05-29T07:20:00.927Z",
+      "id": 36
     }
   ],
   "offerLetters": [

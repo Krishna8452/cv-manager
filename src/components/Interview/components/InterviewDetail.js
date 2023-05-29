@@ -1,5 +1,5 @@
 import React from 'react'
-import {IconButton, Box, Table, TableCell,TableHead, Typography} from "@mui/material"
+import {IconButton, Box, Table, TableCell,TableHead, Divider} from "@mui/material"
 import CancelIcon from "@mui/icons-material/Cancel";
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
@@ -10,6 +10,7 @@ export const InterviewDetail = ({onClick, details}) => {
   return (
   <>    <Box
           style={{
+            height:75,
             display:'flex',
             border: "2px",
             justifyContent: "right",
@@ -23,6 +24,7 @@ export const InterviewDetail = ({onClick, details}) => {
           </IconButton>
         </Box>
     </Box>
+    <Divider/>
     <TableContainer component={Paper}>
       <Table sx={{textAlign:'center'}}>
 

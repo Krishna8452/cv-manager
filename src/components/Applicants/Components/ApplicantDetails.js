@@ -24,26 +24,20 @@ export const ApplicantDetails = ({ details, onClick }) => {
     "pending",
     "hired",
   ];
-  const [offerLettersList, setOfferlettersList] = useState([]);
+  const [offerLettersList, setOfferlettersList] = useState(null);
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3031/offerLetters");
+      const response = await fetch(`http://localhost:3031/offerLetters/${detail.id}`);
       const data = await response.json();
       setOfferlettersList(data);
     } catch (error) {
       console.log("Error fetching data:", error);
     }
   };
-  function fetch(id) {
-    const applicantOfferLetter = offerLettersList.filter(
-      (data) => data.id === id
-    );
-    setOfferlettersList(applicantOfferLetter);
-  }
   console.log(offerLettersList, "hrr");
   return (
     <>
@@ -97,6 +91,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
 
       <Divider />
       <Box sx={{ display: "flex" }}>
+
         <TableContainer
           sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
           component={Paper}
@@ -112,6 +107,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
             <Typography>Reference: {detail.reference}</Typography>
           </Box>
         </TableContainer>
+
         <TableContainer
           sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
           component={Paper}
@@ -131,26 +127,21 @@ export const ApplicantDetails = ({ details, onClick }) => {
             <Typography>Resume: {detail.resume}</Typography>
           </Box>
         </TableContainer>
+      
+        { offerLettersList && 
         <TableContainer
-          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
-          component={Paper}
-        >
-          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
-            <h1>Offer Letter</h1>
-            <Typography>Position: {detail.level}</Typography>
-            <Typography>
-              {" "}
-              Technology:{" "}
-              {detail.technology?.map((list) => {
-                return <>{list}, </>;
-              })}
-            </Typography>
-            <Typography>
-              Expected Salary: {detail.salary_expectation}
-            </Typography>
-            <Typography>Resume: {detail.resume}</Typography>
-          </Box>
-        </TableContainer>
+            sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+            component={Paper}
+          >
+            <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+              <h1>Offer Letter</h1>
+              <Typography>editor: {offerLettersList.editor}</Typography>
+              <Typography>
+                Status: {offerLettersList.status}
+              </Typography>
+              <Typography>Letter File: {offerLettersList.letterFile}</Typography>
+            </Box>
+        </TableContainer>}
       </Box>
     </>
   );

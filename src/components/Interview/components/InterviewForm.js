@@ -12,16 +12,19 @@ const InterviewForm = () => {
   const navigate= useNavigate()
   const [interviewers, setInterviewers] = useState([]);
   const [applicants, setApplicants] = useState([]);
-
+  const [editMode, setEditMode] = useState(false)
+  const [oldData, setOldData] = useState(null)
   const initialValues={
-    interviewers: [],
-    applicant: "",
-    date:null,
-    time:""
+    interviewers:(editMode? [`${oldData.interviewers}`] : []),
+    applicant:(editMode? `${oldData.applicant}` : ""),
+    date:(editMode? `${oldData.date}` :null),
+    time:(editMode? `${oldData.time}` :"")
   }
 
   useEffect(() => {
-
+    if(id){
+      fetchData()
+    }
     axios.get("http://localhost:3031/interviewers")
       .then((response) => {
         setInterviewers(response.data);
@@ -37,15 +40,24 @@ const InterviewForm = () => {
       .catch((error) => {
         console.error("Error fetching applicants:", error);
       });
+
   }, []);
+  const fetchData = async () =>{   
+    try{
+      const response= await axios.get(`http://localhost:3031/interviews/${id}`)
+      const data = response.data
+      setOldData(data);
+      setEditMode(true)  
+    }catch (error) {
+      console.log('Error fetching data:', error);
+    }
+  };
 
 
   const handleSubmit = async (values) => {
+
     try {
-        console.log("Form submitted:", values);
-
       if (id) {
-
         console.log(values, "yes");
         axios.put(`http://localhost:3031/interviews/${id}`, values);
         navigate("/interview");
@@ -60,8 +72,7 @@ const InterviewForm = () => {
       console.error("Error:", error);
     }
   };
-  console.log(interviewers, "i");
-  console.log(applicants, "a");
+   console.log(oldData,"y")
   return (
     <>
       <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>

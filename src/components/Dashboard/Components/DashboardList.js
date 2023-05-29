@@ -44,7 +44,7 @@ export default function DashboardList({
         <h2>Main Dashboard</h2>
       </TableContainer>
       <Grid sx={{ display: "flex", gap: 2 }}>
-        <Grid sx={{ display: "flex", gap: 2, marginLeft: 1 }}>
+        <Grid sx={{ display: "flex", gap: 3, marginLeft: 1 }}>
           {list.map((list) => (
             <Card
               sx={{
