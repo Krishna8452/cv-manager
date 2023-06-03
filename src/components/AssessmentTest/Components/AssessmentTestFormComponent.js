@@ -36,21 +36,21 @@ export default function AssessmentTestFormComponent({initialValues,applicants, o
     enableReinitialize={true}
     >
     {({ errors, touched, values}) => (
-        <Form style={{display:'grid', justifyContent:'center', textAlign:'center'}}>
-              <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+        <Form style={{display:'grid',padding:30, width:43, height:450}}>
+              <FormControl sx={{ marginBottom: "20px", width: "300px" }}>
                   <Field
                     as={TextField}
                     name="title"
                     type="text"
                     label="Title "
                     variant="standard"
-                    sx={{ marginBottom: "16px" }}
+                    sx={{ marginBottom: "20px" }}
                     error={touched.title && !!errors.title}
                     helperText={touched.title && errors.title}
                  
                   />
                 </FormControl>
-                <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+                <FormControl sx={{ marginBottom: "20px", width: "300px" }}>
                   <InputLabel id="applicant-label">Select Applicant</InputLabel>
                   <Field
                     as={Select}
@@ -67,7 +67,7 @@ export default function AssessmentTestFormComponent({initialValues,applicants, o
                   </Field>
                   <ErrorMessage name="applicant" component="div" />
                 </FormControl>
-            <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+            <FormControl sx={{ marginBottom: "20px", width: "300px" }}>
             <InputLabel id="evaluation-label">evaluation</InputLabel>
                   <Field
                     as={Select}
@@ -87,11 +87,11 @@ export default function AssessmentTestFormComponent({initialValues,applicants, o
                     <ErrorMessage name="evaluation" component="div" />
                   )}
                 </FormControl>
-                <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+                <FormControl sx={{ marginBottom: "20px", width: "300px" }}>
                     <Field type="file" id="document" name="document" />
                     <ErrorMessage name="document" component="div" />
                 </FormControl>
-                <Button variant='contained' size="large" type="submit">
+                <Button variant='outlined' size="small" type="submit">
                   Submit
                 </Button>
          </Form>

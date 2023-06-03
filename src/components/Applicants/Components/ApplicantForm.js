@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import FormComponent from './FormComponent';
-import { Button, IconButton } from '@mui/material';
+import { Button, Dialog, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ApplicantForm = () => {
@@ -13,7 +13,7 @@ const ApplicantForm = () => {
   const navigate =useNavigate()
   const [editMode ,setEditMode] =useState(false)
   const [oldData, setOldData] = useState(null) 
-   
+  const [open ,setOpen] = useState(true)
   const initialValues= {
     firstName:(editMode? `${oldData.firstName}`:""),
     middleName:(editMode? `${oldData.middleName}`:''),
@@ -58,7 +58,7 @@ const ApplicantForm = () => {
   };
   console.log(oldData,'me')
   return (
-    <div>
+    <>
       <TableContainer sx={{display:'flex', marginTop:1 }} component={Paper}>
       <IconButton onClick={()=>navigate('/applicant')}>
         <ArrowBackIcon/>
@@ -66,8 +66,7 @@ const ApplicantForm = () => {
       <h1 style={{marginLeft:'34%'}}> {editMode ? 'Update a Applicant form':'Create a Applicant form'} </h1>
       </TableContainer>
         <FormComponent onSubmit={handleSubmit} initialValues={initialValues}/>
-     
-    </div>
+    </>
   );
 };
 export default ApplicantForm;

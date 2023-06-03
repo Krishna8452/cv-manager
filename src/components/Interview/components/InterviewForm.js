@@ -5,7 +5,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import { IconButton} from "@mui/material";
+import { Box, Dialog, Divider, IconButton, Typography} from "@mui/material";
+import CancelIcon from "@mui/icons-material/Cancel";
+
 
 const InterviewForm = () => {
   const {id}=useParams()
@@ -14,6 +16,7 @@ const InterviewForm = () => {
   const [applicants, setApplicants] = useState([]);
   const [editMode, setEditMode] = useState(false)
   const [oldData, setOldData] = useState(null)
+  const [open,setOpen]= useState(true)
   const initialValues={
     interviewers:(editMode? [`${oldData.interviewers}`] : []),
     applicant:(editMode? `${oldData.applicant}` : ""),
@@ -79,9 +82,19 @@ const InterviewForm = () => {
         <IconButton onClick={()=>navigate('/dashboard')}>
             <ArrowBackIcon/>
         </IconButton>
-        <h1 style={{ marginLeft: "34%" }}> Offer Letter List</h1>
+        <h1 style={{ marginLeft: "40%" }}> Interview</h1>
     </TableContainer>
+    <Dialog open={open}>
+      <Box sx={{display:'flex'}}>
+        <Typography sx={{fontSize:40, marginTop:2, marginLeft:'7rem'}}>Fill the Form</Typography>
+        <Box sx={{flexGrow:1}}/>
+        <IconButton color={"red"} onClick={()=>navigate('/interview')} title="Cancel">
+          <CancelIcon />
+        </IconButton>
+      </Box>
+      <Divider/>
      <FormComponent initialValues={initialValues} onSubmit={handleSubmit} applicants={applicants} interviewers={interviewers}/>
+     </Dialog>
     </>
   );
 };

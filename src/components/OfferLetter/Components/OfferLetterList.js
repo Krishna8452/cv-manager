@@ -19,13 +19,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import OfferLetterDetail from './OfferLetterDetail';
 export default function  OfferLetterList(){
 const navigate = useNavigate()
 
 const [offerLettersList,setOfferlettersList] = useState([])
 const [open, setOpen]= useState()
 const [storeId, setStoreId] = useState()
+const [detailMode, setDetailMode] = useState(false)
+const [offerLetterDetail, setOfferLetterDetail] = useState()
 useEffect(() => {
   fetchData();
 },[]);
@@ -47,19 +49,22 @@ const handleClickOpen = (id)=>{
 const handleClose = () => {
   setOpen(false);
 };
-const viewOfferList =()=>{
-alert('view action')
-}
+function viewOfferList(id){
+  const offerList = offerLettersList.filter((data) => data.id === id);
+  setOfferLetterDetail(offerList)
+  setDetailMode(true)
+   }
 const deleteOfferLetter = (storeId)=>{
   axios.delete(`http://localhost:3031/offerLetters/${storeId}`);
   setOfferlettersList((list) =>
   list.filter((list) => list.id !== storeId)
 );
   setOpen(false);
-}
- console.log(offerLettersList,'fdffdfdfd')
-  return <>    
-    <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>
+} 
+ console.log(offerLetterDetail,'d')
+  return <>
+  {detailMode&& <OfferLetterDetail details ={offerLetterDetail} onClick={()=>setDetailMode(false)} />}    
+  {!detailMode &&   <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>
     <Table>
       <TableHead>
         <TableCell>Applicant</TableCell>
@@ -80,7 +85,7 @@ const deleteOfferLetter = (storeId)=>{
 
         <ButtonGroup>
                 <Button
-                  onClick={() => viewOfferList()}
+                  onClick={() => viewOfferList(data.id)}
                   variant="outlined"
                   color="primary"
                   startIcon={<VisibilityIcon />}
@@ -108,6 +113,8 @@ const deleteOfferLetter = (storeId)=>{
       </TableBody>
       </>})}
     </Table>
+    </TableContainer>}
+
     <Dialog
       sx={{ justifyContent: "center" }}
       open={open}
@@ -126,7 +133,6 @@ const deleteOfferLetter = (storeId)=>{
         </Button>
       </DialogActions>
     </Dialog>
-    </TableContainer>
   </>
   
 }

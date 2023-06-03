@@ -7,6 +7,7 @@ import {
   Box,
   Divider,
   Typography,
+  Button,
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TableContainer from "@mui/material/TableContainer";
@@ -18,32 +19,83 @@ export const ApplicantDetails = ({ details, onClick }) => {
   const detail = details[0];
 
   const steps = [
-    "shortlisted",
+    "shortListed",
     "first_interview",
     "second_interview",
     "pending",
     "hired",
   ];
-  const [offerLettersList, setOfferlettersList] = useState(null);
+  const [applicant,setApplicant] = useState(detail)
+  const [offerLetter, setOfferLetter] = useState(null);
+  const [interview, setInterview] = useState(null);
+  const [assessmentTest, setAssessmentTest] = useState(null);
+
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
+
+    try{
+      const response = await fetch(
+      `http://localhost:3031/offerLetters`
+    );
+    if(response.status !== 404) {
+
     try {
       const response = await fetch(
         `http://localhost:3031/offerLetters/${detail.id}`
       );
+
       const data = await response.json();
-      setOfferlettersList(data);
+      const applicantOffer = data.filter((data)=>data.applicant===detail.id)
+      console.log(applicantOffer,'appoffer')
+      setOfferLetter(applicantOffer[0]);
+    } else {
+      setOfferLetter(null);
+    }
     } catch (error) {
       console.log("Error fetching data:", error);
     }
+    try{
+      const response = await fetch(
+      `http://localhost:3031/interviews`
+    );
+    if(response.status !== 404) {
+      const data2 = await response.json();
+      const interviewData = data2.filter((data)=>data.applicant===detail.id)
+      setInterview(interviewData[0]);
+    } else {
+      setInterview(null);
+    }
+    } catch (error) {
+    console.log("Error fetching data:", error);
+    }
+    try{
+      const response = await fetch(
+      `http://localhost:3031/assessmentTest`
+    );
+    if(response.status !== 404) {
+      const data3 = await response.json();
+      const assessmentData = data3.filter((data)=>data.applicant===detail.id)
+      setAssessmentTest(assessmentData[0]);
+    } else {
+      setInterview(null);
+    }
+    } catch (error) {
+    console.log("Error fetching data:", error);
+    }
   };
-  console.log(offerLettersList, "hrr");
+  console.log(assessmentTest, "hrr");
+
   return (
     <>
       <TableContainer
+        sx={{ display: "flex", paddingTop:1, paddingBottom:1 }}
+        component={Paper}
+      >
+        <Box sx={{ marginBottom: 1, width: "105%",marginTop:1 }}>
         sx={{ display: "flex", paddingTop: 2, paddingBottom: 2 }}
         component={Paper}
       >
@@ -95,9 +147,10 @@ export const ApplicantDetails = ({ details, onClick }) => {
       </TableContainer>
 
       <Divider />
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:2}}>
       <Box sx={{ display: "flex" }}>
         <TableContainer
-          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          sx={{ height: 275, width: "33%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -113,7 +166,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
         </TableContainer>
 
         <TableContainer
-          sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+          sx={{ marginLeft: 2, height: 275,  width: "33%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -132,6 +185,53 @@ export const ApplicantDetails = ({ details, onClick }) => {
           </Box>
         </TableContainer>
 
+        <TableContainer
+          sx={{ marginLeft: 2, height: 275, width: "33%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <Box sx={{display:'flex'}}>
+              <h2 style={{marginLeft:'9rem'}}>Offer Letter</h2>
+              <Box sx={{flexGrow:1}}/>
+              {offerLetter && <Button
+                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                color="success"
+                size="small"
+                variant="outlined"
+                component={Link}
+                to={`/offerLetter/edit/${offerLetter.id}`}
+              >
+                edit
+              </Button>}
+            </Box>
+            {offerLetter ? (
+              <>
+                <Typography>editor: {offerLetter.editor}</Typography>
+                <Typography>Status: {offerLetter.status}</Typography>
+                <Typography>
+                  Letter File: {offerLetter.letterFile}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                No offer letter created, Click below button if you want to
+                create.
+                <br />
+                <br />
+                <Button
+                  color="success"
+                  size="small"
+                  variant="outlined"
+                  component={Link}
+                  to="/offerLetter/create"
+                >
+                  Create
+                </Button>
+              </Typography>
+            )}
+          </Box>
+
+        </TableContainer>
         {offerLettersList && (
           <TableContainer
             sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
@@ -148,6 +248,148 @@ export const ApplicantDetails = ({ details, onClick }) => {
           </TableContainer>
         )}
       </Box>
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:1, gap:2}}>
+      <TableContainer
+          sx={{ height: 275,  width: "33%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <Box sx={{display:'flex'}}>
+              <h2 style={{marginLeft:'9rem'}}> Interview</h2>
+              <Box sx={{flexGrow:1}}/>
+              {interview && <Button
+                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                color="success"
+                size="small"
+                variant="outlined"
+                component={Link}
+                to={`/interview/edit/${interview.id}`}
+              >
+                edit
+              </Button>}
+            </Box>
+            {interview ? (
+              <>
+                <Typography>Interviewers: {interview.interviewers?.map((list)=>{return<>{list}</>})}</Typography>
+                <Typography>Date: {interview.date}</Typography>
+                <Typography>
+                  Time : {interview.time}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                No Interview created, Click below button, if you want to
+                create.
+                <br />
+                <br />
+                <Button
+                  color="success"
+                  size="small"
+                  variant="outlined"
+                  component={Link}
+                  to="/interview/create"
+                >
+                  Create
+                </Button>
+              </Typography>
+            )}
+          </Box>
+          
+        </TableContainer>
+        <TableContainer
+          sx={{ height: 275,  width: "33%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <Box sx={{display:'flex'}}>
+              <h2 style={{marginLeft:'9rem'}}> Assessment Test</h2>
+              <Box sx={{flexGrow:1}}/>
+              {assessmentTest && <Button
+                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                color="success"
+                size="small"
+                variant="outlined"
+                component={Link}
+                to={`/assessmentTest/edit/${interview.id}`}
+              >
+                edit
+              </Button>}
+            </Box>
+            {assessmentTest ? (
+              <>
+                <Typography>Title: {assessmentTest.title}</Typography>
+                <Typography>Evaluation: {assessmentTest.evaluation}</Typography>
+                <Typography>Time : {assessmentTest.document}</Typography>
+              </>
+            ) : (
+              <Typography>
+                No Assessment Test created, Click below button, if you want to
+                create.
+                <br />
+                <br />
+                <Button
+                  color="success"
+                  size="small"
+                  variant="outlined"
+                  component={Link}
+                  to="/assessmentTest/create"
+                >
+                  Create
+                </Button>
+              </Typography>
+            )}
+          </Box>
+          
+        </TableContainer>
+        <TableContainer
+          sx={{ height: 275,  width: "33%" }}
+          component={Paper}
+        >
+          <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+            <Box sx={{display:'flex'}}>
+              <h2 style={{marginLeft:'9rem'}}> Interview</h2>
+              <Box sx={{flexGrow:1}}/>
+              {interview && <Button
+                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                color="success"
+                size="small"
+                variant="outlined"
+                component={Link}
+                to={`/interview/edit/${interview.id}`}
+              >
+                edit
+              </Button>}
+            </Box>
+            {interview ? (
+              <>
+                <Typography>Interviewers: {interview.interviewers?.map((list)=>{return<>{list}</>})}</Typography>
+                <Typography>Date: {interview.date}</Typography>
+                <Typography>
+                  Time : {interview.time}
+                </Typography>
+              </>
+            ) : (
+              <Typography>
+                No Interview created, Click below button, if you want to
+                create.
+                <br />
+                <br />
+                <Button
+                  color="success"
+                  size="small"
+                  variant="outlined"
+                  component={Link}
+                  to="/interview/create"
+                >
+                  Create
+                </Button>
+              </Typography>
+            )}
+          </Box>
+          
+        </TableContainer>
+        
+      </Box>  
     </>
   );
 };
