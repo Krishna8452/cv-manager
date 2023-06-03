@@ -1,4 +1,4 @@
-import {React,useEffect, useCallback} from "react";
+import { React, useEffect, useCallback } from "react";
 import Icon from "@mui/material/Icon";
 import { green } from "@mui/material/colors";
 import { styled, alpha } from "@mui/material/styles";
@@ -18,28 +18,29 @@ import {
   TextField,
   ToggleButtonGroup,
 } from "@mui/material";
+import {Link} from 'react-router-dom'
+import CancelIcon from '@mui/icons-material/Cancel';
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { InterviewerDetail } from "./InterviewerDetail";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Modal from "@mui/material/Modal";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import InterviewerDetail from "./InterviewerDetail";
 
 export default function InterviewerList() {
-  const navigate=useNavigate() 
+  const navigate = useNavigate();
   const [list, setList] = useState([]);
-  const [open, setOpen] = useState(false)
-  const [storeId,setStoreId] = useState()
+  const [open, setOpen] = useState(false);
+  const [storeId, setStoreId] = useState();
 
   useEffect(() => {
     fetchData();
@@ -69,61 +70,59 @@ export default function InterviewerList() {
   };
 
   function viewInterviewer(id) {
-   const interviewer = list.filter((data) => data.id === id);
-   setDetails(interviewer)
-   setDetailMode(true)
-    }
-  
+    const interviewer = list.filter((data) => data.id === id);
+    setDetails(interviewer);
+    setDetailMode(true);
+  }
+
   function deleteInterviewer(id) {
-    axios.delete(`http://localhost:3031/interviewers/${id}`)
-    setList((list) =>
-      list.filter((list) => list.id !== id)
-    );
+    axios.delete(`http://localhost:3031/interviewers/${id}`);
+    setList((list) => list.filter((list) => list.id !== id));
     setOpen(false);
   }
-  console.log(details,'details')
+  console.log(details, "details");
   return (
     <>
-      <TableContainer sx={{display:'flex', marginTop: 1 }} component={Paper}>
-        <IconButton onClick={()=>navigate('/dashboard')}>
-          <ArrowBackIcon/>
+      <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>
+        <IconButton onClick={() => navigate("/dashboard")}>
+          <ArrowBackIcon />
         </IconButton>
         <>
-        <h1 style={{ marginLeft:'34%'}}>Interviewer List</h1>
+          <h1 style={{ marginLeft: "34%" }}>Interviewer List</h1>
 
-        <Box sx={{flexGrow:1}}/>
+          <Box sx={{ flexGrow: 1 }} />
 
-        <Box sx={{ marginLeft: "15px", display: "flex" }}>
-          <Search
-            sx={{
-              borderColor: "red",
-              borderRadius: "15px",
-              justifyContent: "center",
-              alignContent: "center",
-              height:'3rem',
-              marginTop:4
-            }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              // onChange={(e)=>setSearchedData(e.target.value)}
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-              sx={{ justifyContent: "center", left: 15 }}
-            />
-          </Search>
-     
-          <IconButton onClick={()=>navigate('/interviewer/create')}>
-            <Icon
-              sx={{ color: green[500], textAlign: "right" }}
-              fontSize="large"
+          <Box sx={{ marginLeft: "15px", display: "flex" }}>
+            <Search
+              sx={{
+                borderColor: "red",
+                borderRadius: "15px",
+                justifyContent: "center",
+                alignContent: "center",
+                height: "3rem",
+                marginTop: 4,
+              }}
             >
-              add_circle
-            </Icon>
-          </IconButton>
-        </Box>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                // onChange={(e)=>setSearchedData(e.target.value)}
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+                sx={{ justifyContent: "center", left: 15 }}
+              />
+            </Search>
+
+            <IconButton onClick={() => navigate("/interviewer/create")}>
+              <Icon
+                sx={{ color: green[500], textAlign: "right" }}
+                fontSize="large"
+              >
+                add_circle
+              </Icon>
+            </IconButton>
+          </Box>
         </>
       </TableContainer>
       <Modal
@@ -133,10 +132,38 @@ export default function InterviewerList() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <InterviewerDetail
-            onClick={() => setDetailMode(false)}
-            details={details}
-          />
+          <Box display={"flex"}>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box
+              style={{
+                color: "red",
+                border: "2px",
+                justifyContent: "center",
+                alignItem: "center",
+                gap: "3rem",
+              }}
+            >
+              <Link to={`/experience/edit/${details.id}`}>
+                <IconButton title="edit">
+                  <EditIcon color="primary" />
+                </IconButton>
+              </Link>
+            </Box>
+            <Box
+              style={{
+                marginLeft: "1rem",
+                display: "flex",
+                color: "red",
+                border: "2px",
+                justifyContent: "right  ",
+              }}
+            >
+              <IconButton onClick={() => setDetailMode(false)} title="Cancel">
+                <CancelIcon />
+              </IconButton>
+            </Box>
+          </Box>
+          <InterviewerDetail details={details} />
         </Box>
       </Modal>
 
@@ -165,17 +192,17 @@ export default function InterviewerList() {
                       >
                         view
                       </Button>
-                    
+
                       <Button
-                        onClick={()=>navigate(`/interviewer/edit/${list.id}`)}
+                        onClick={() => navigate(`/interviewer/edit/${list.id}`)}
                         color="primary"
-                        startIcon={<EditIcon/>}
+                        startIcon={<EditIcon />}
                       >
                         edit
                       </Button>
-              
+
                       <Button
-                        onClick={()=>handleClickOpen(list.id)}
+                        onClick={() => handleClickOpen(list.id)}
                         variant="outlined"
                         color="error"
                         startIcon={<DeleteIcon />}
@@ -190,23 +217,21 @@ export default function InterviewerList() {
           })}
         </Table>
         <Dialog
-              sx={{ justifyContent: "center" }}
-              open={open}
-              onClose={handleClose}
-            >
-              <DialogTitle>
-                Are you sure you want to delete the interviewer ?
-              </DialogTitle>
-              <DialogContent>
-               Your data will be lost
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose}>Disagree</Button>
-                <Button onClick={() => deleteInterviewer(storeId)} autoFocus>
-                  Agree
-                </Button>
-              </DialogActions>
-            </Dialog>
+          sx={{ justifyContent: "center" }}
+          open={open}
+          onClose={handleClose}
+        >
+          <DialogTitle>
+            Are you sure you want to delete the interviewer ?
+          </DialogTitle>
+          <DialogContent>Your data will be lost</DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={() => deleteInterviewer(storeId)} autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
       </TableContainer>
     </>
   );
@@ -264,5 +289,5 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   maxHeight: "50%",
-  padding:'1rem'
+  padding: "1rem",
 };

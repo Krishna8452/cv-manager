@@ -29,6 +29,7 @@ const Signin = () => {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
+          marginTop:'11rem'
         }}
       >
         <h1>Google Sign In</h1>

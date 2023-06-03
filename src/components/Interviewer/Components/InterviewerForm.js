@@ -4,10 +4,9 @@ import Paper from '@mui/material/Paper';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import FormComponent from './FormComponent';
-import { Button, IconButton } from '@mui/material';
+import {Typography,Divider,Box, Dialog, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
-
+import CancelIcon from "@mui/icons-material/Cancel"
 
 
 const InterviewerForm = () => {
@@ -15,7 +14,7 @@ const InterviewerForm = () => {
   const navigate =useNavigate()
   const [editMode ,setEditMode] =useState(false)
   const [oldData, setOldData] = useState(null)
-
+  const [open, setOpen]= useState(true)
   const initialValues ={
     interviewerName:(editMode? `${oldData.interviewerName}` :''),
     email:(editMode? `${oldData.email}` :''),
@@ -38,6 +37,7 @@ const InterviewerForm = () => {
    },
   [id])
   const handleSubmit = (values, { setSubmitting }) => {
+    caches.log('jell')
       //localStorage.setItem('applicantList', JSON.stringify([values]))   
       if(id){
         console.log(values,'yes')
@@ -58,8 +58,19 @@ const InterviewerForm = () => {
       </IconButton>
       <h1 style={{ textAlign: "center", marginLeft:'34%'}}> {editMode ? 'Update a Interviewer form':'Create a Interviewer form'} </h1>
       </TableContainer>
+      <Dialog 
+      open={open}
+      >
+      <Box sx={{display:'flex'}}>
+        <Typography sx={{fontSize:40, marginTop:2, marginLeft:'7rem'}}>Fill the Form</Typography>
+        <Box sx={{flexGrow:1}}/>
+        <IconButton color={"red"} onClick={()=>navigate('/interviewer')} title="Cancel">
+          <CancelIcon />
+        </IconButton>
+      </Box>
+      <Divider/>
         <FormComponent onSubmit={handleSubmit} initialValues={initialValues}/>
-     
+     </Dialog>
     </div>
   );
 };

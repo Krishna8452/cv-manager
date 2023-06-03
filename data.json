@@ -1,6 +1,40 @@
 {
   "applicants": [
     {
+      "firstName": "Beerav",
+      "middleName": "",
+      "lastName": "Bhattarai",
+      "email": "beerav@gmail.com",
+      "phoneNumber": "9800768098",
+      "level": "Associate",
+      "reference": "Friends",
+      "technology": [
+        "React"
+      ],
+      "experience": "77777",
+      "status": "shortListed",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\Home.docx",
+      "id": 5
+    },
+    {
+      "firstName": "Poojan",
+      "middleName": "",
+      "lastName": "Bhattarai",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": "9800768098",
+      "level": "Associate",
+      "reference": "Facebook Page",
+      "technology": [
+        "React"
+      ],
+      "experience": "77777",
+      "status": "second_interview",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 6
+    },
+    {
       "firstName": "Ashok",
       "middleName": "",
       "lastName": "Bhandari",
@@ -104,21 +138,20 @@
       "id": 8
     },
     {
-      "firstName": "Sadip",
-      "middleName": "chand",
-      "lastName": "Budhathoki",
-      "email": "sandip@gmail.com",
-      "phoneNumber": "9800768098",
-      "level": "Junior",
+      "firstName": "Krishna",
+      "middleName": "dsdsd",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": 9800768098,
+      "level": "Associate",
       "reference": "sdxfcgvhjbnkml,",
       "technology": [
-        "React",
-        "Node.js"
+        "React"
       ],
       "experience": "likujhgfdsa",
-      "status": "pending",
+      "status": "shortListed",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 9
     },
     {
@@ -132,37 +165,14 @@
       "technology": [
         "React"
       ],
-      "experience": "",
-      "status": "first_interview",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 10
-    },
-    {
-      "firstName": "Sagar",
-      "middleName": "Rana",
-      "lastName": "Magar",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": "9800768098",
-      "level": "Junior",
-      "reference": "friends",
-      "technology": [
-        "Node.js"
-      ],
       "experience": "likujhgfdsa",
       "status": "shortListed",
       "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (4).docx",
-      "id": 11
+      "file": "C:\\fakepath\\Home.docx",
+      "id": 10
     }
   ],
   "interviewers": [
-    {
-      "interviewerName": "krishna",
-      "email": "uniqkrimson100@gmail.com",
-      "position": "Junior",
-      "id": 3
-    },
     {
       "interviewerName": "Bijay Kandel",
       "email": "uniqkrimson100@gmail.com",
@@ -180,29 +190,15 @@
       "email": "govinda@gmail.com",
       "position": "Associate",
       "id": 6
+    },
+    {
+      "interviewerName": "krishna",
+      "email": "uniqkrimson100@gmail.com",
+      "position": "HR",
+      "id": 7
     }
   ],
   "interviews": [
-    {
-      "interviewers": [
-        2,
-        1
-      ],
-      "applicant": 7,
-      "date": "2023-04-30T18:15:00.000Z",
-      "time": "2023-05-29T06:15:00.771Z",
-      "id": 29
-    },
-    {
-      "interviewers": [
-        2,
-        1
-      ],
-      "applicant": 3,
-      "date": "2023-05-01T18:15:00.000Z",
-      "time": "2023-05-26T08:25:00.261Z",
-      "id": 30
-    },
     {
       "interviewers": [
         1,
@@ -234,44 +230,64 @@
     },
     {
       "interviewers": [
-        4,
-        3
+        3,
+        4
       ],
-      "applicant": 3,
-      "date": "2023-04-30T18:15:00.000Z",
-      "time": "2023-05-29T06:20:00.374Z",
+      "applicant": 7,
+      "date": "2023-05-29T18:15:00.000Z",
+      "time": "2023-05-31T03:15:00.637Z",
       "id": 34
     },
     {
       "interviewers": [
-        3
+        4
       ],
-      "applicant": 7,
-      "date": "2023-04-30T18:15:00.000Z",
-      "time": "2023-05-28T19:15:00.193Z",
+      "applicant": 2,
+      "date": "2023-06-07T18:15:00.000Z",
+      "time": "2023-05-31T19:20:00.497Z",
       "id": 35
     },
     {
       "interviewers": [
-        3,
         4,
-        5,
-        6
+        5
       ],
-      "applicant": 2,
-      "date": "2023-05-15T18:15:00.000Z",
-      "time": "2023-05-29T07:20:00.927Z",
+      "applicant": 5,
+      "date": "2023-06-06T18:15:00.000Z",
+      "time": "2023-05-31T19:30:00.236Z",
       "id": 36
+    },
+    {
+      "interviewers": [
+        3,
+        7
+      ],
+      "applicant": 9,
+      "date": "2023-06-14T18:15:00.000Z",
+      "time": "2023-06-02T18:15:00.112Z",
+      "id": 37
+    },
+    {
+      "interviewers": [
+        3
+      ],
+      "applicant": 3,
+      "date": "2023-06-05T18:15:00.000Z",
+      "time": "2023-06-03T22:15:00.692Z",
+      "id": 38
+    },
+    {
+      "interviewers": [
+        "3,6,5,4,4,7,4",
+        5
+      ],
+      "applicant": 6,
+      "date": "2023-06-04T18:15:00.000Z",
+      "time": "2023-06-04T07:20:00.284Z",
+      "id": 39
     }
   ],
   "offerLetters": [
-    {
-      "editor": "<p>dfdfdfdff</p>",
-      "status": "fdfdf",
-      "applicant": 10,
-      "letterFile": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 1
-    },
     {
       "editor": "<p>&nbsp;ddvx</p>",
       "status": "dfdfd",
@@ -280,33 +296,56 @@
       "id": 2
     },
     {
-      "editor": "<p>sdsdsdsd</p>",
-      "status": "dsdsdsd",
-      "applicant": 2,
+      "editor": "<p>ffff</p>",
+      "status": "ffff",
+      "applicant": 5,
       "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 3
+    },
+    {
+      "editor": "<p>dsdsd</p>",
+      "status": "sdsdsd",
+      "applicant": 3,
+      "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
+      "id": 4
+    },
+    {
+      "editor": "<p>sdffddf</p>",
+      "status": "Hired",
+      "applicant": 6,
+      "letterFile": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 5
     }
   ],
   "assessmentTest": [
     {
-      "applicant": 3,
-      "title": "dfgdfg",
+      "applicant": 2,
+      "title": "Third Assessmennt",
       "evaluation": "Poor",
       "document": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 1
-    },
-    {
-      "applicant": 3,
-      "title": "xcxcxc",
-      "evaluation": "Poor",
-      "document": "C:\\fakepath\\CV Manager SRS (4).docx",
       "id": 2
     },
     {
-      "applicant": 3,
-      "title": "Third Assessment",
-      "evaluation": "Average",
+      "applicant": 9,
+      "title": "fdfdf",
+      "evaluation": "Poor",
       "document": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 3
+    },
+    {
+      "applicant": 2,
+      "title": "scdfdf",
+      "evaluation": "Very Poor",
+      "document": "C:\\fakepath\\CV Manager SRS (3).docx",
+      "id": 4
+    }
+  ],
+  "templateLetters": [
+    {
+      "name": "Krishna",
+      "template": "ddfdfdf",
+      "subject": "dfdfdf",
+      "body": "dfdfdfd",
       "id": 3
     }
   ]

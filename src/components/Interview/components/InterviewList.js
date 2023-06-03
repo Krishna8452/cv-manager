@@ -80,6 +80,7 @@ export default function InterviewList() {
   );
     setOpen(false);
   }
+
   return (
     <>
       <TableContainer sx={{display:'flex', marginTop: 1 }} component={Paper}>
@@ -122,8 +123,8 @@ export default function InterviewList() {
             {interviewList.map((list) => {
               return<>
             <TableBody>
-            <TableCell size="small">{list.interviewers?.map((interviewer)=>{
-              return <p>{interviewer?.name}</p>
+            <TableCell size="small">{list.interviewers?.map((data)=>{
+              return <>{data} ,</>
             })}
             </TableCell>
             <TableCell size="small">{list.applicant}</TableCell>

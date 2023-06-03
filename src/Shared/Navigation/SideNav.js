@@ -3,7 +3,6 @@ import {
   Sidebar,
   Menu,
   MenuItem,
-  SubMenu,
   useProSidebar,
 } from "react-pro-sidebar";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -15,6 +14,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import InterpreterModeIcon from "@mui/icons-material/InterpreterMode";
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import { Theme } from "@mui/material";
 import { UserAuth } from "../../context/AuthContext";
 import { Link, useLocation } from "react-router-dom";
@@ -78,20 +78,6 @@ export default function SideNav() {
           <Typography variant="body2">Applicant</Typography>
         </MenuItem>
 
-        {/* <MenuItem active={location.pathname === '/experienceApplicants' }
-          component={<Link to="/experienceApplicants"/>}
-          icon={<AccountCircleIcon/>}
-        >
-          <Typography variant="body2">Experienced Applicant</Typography>
-        </MenuItem>
-
-        <MenuItem active={location.pathname === '/experience'}
-          component={<Link to="/experience"/>}
-          icon={<AccountCircleIcon/>}
-        >
-          <Typography variant="body2">Experience</Typography>
-        </MenuItem> */}
-
         <MenuItem
           active={location.pathname === "/interviewer" || location.pathname==="/interviewer/create"}
           component={<Link to="/interviewer" />}
@@ -121,6 +107,20 @@ export default function SideNav() {
           icon={<AssessmentIcon />}
         >
           <Typography variant="body2">Assessment Test</Typography>
+        </MenuItem>
+        <MenuItem
+          active={location.pathname === "/templateLetter" || location.pathname==="/templateLetter/create"}
+          component={<Link to="/templateLetter" />}
+          icon={<DocumentScannerIcon />}
+        >
+          <Typography variant="body2">Letter Template </Typography>
+        </MenuItem>
+        <MenuItem
+          active={location.pathname === "/position" || location.pathname==="/position/create"}
+          component={<Link to="/position"/>}
+          icon={<AssessmentIcon />}
+        >
+          <Typography variant="body2">Position</Typography>
         </MenuItem>
 
 

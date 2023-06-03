@@ -14,7 +14,6 @@ import { Experience } from "./components/Experience/Pages/Experience";
 import { Interviewer } from "./components/Interviewer/Pages/Interviewer";
 import ApplicantForm from "./components/Applicants/Components/ApplicantForm";
 import Interview from "./components/Interview/pages/Interview";
-import ApplicantList1 from "./components/Applicants/Components/ApplicantList1";
 import InterviewerForm from "./components/Interviewer/Components/InterviewerForm";
 import InterviewForm from "./components/Interview/components/InterviewForm";
 import OfferLetter from "./components/OfferLetter/Pages/OfferLetter";
@@ -23,7 +22,8 @@ import AssessmentTest from "./components/AssessmentTest/Pages/AssessmentTest";
 import Dashboard from "./components/Dashboard/Pages/Dashboard";
 import AssessmentTestForm from "./components/AssessmentTest/Components/AssessmentTestForm";
 import ApplicantList from "./components/Applicants/Components/ApplicantList";
-import AssessmentTestFormComponent from "./components/AssessmentTest/Components/AssessmentTestFormComponent";
+import { TemplateLetter } from "./components/TemplateLetter/Pages/TemplateLetter";
+import TemplateLetterForm from "./components/TemplateLetter/Components/TemplateLetterForm";
 function App() {
   return (
     <ProSidebarProvider>
@@ -179,9 +179,41 @@ function App() {
             <Account>
               <AssessmentTestForm />
             </Account>
-          }
+          }         
+        />  
+        <Route
+          path="/templateLetter"
+          element={
+            <Account>
+              <TemplateLetter />
+            </Account>
+          }         
+        />
+       <Route
+          path="/templateLetter/create"
+          element={ 
+            <Account>
+              <TemplateLetterForm />
+            </Account>
+          }         
+        />
+        <Route
+          path="/templateLetter/edit/:id"
+          element={
+            <Account>
+              <TemplateLetterForm />
+            </Account>
+          }         
+        />
+        <Route
+          path="/templateLetter/detail/:id"
+          element={
+            <Account>
+            </Account>
+          }         
         />
       </Routes>
+      
     </ProSidebarProvider>
   );
 }

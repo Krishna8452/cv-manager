@@ -8,11 +8,10 @@ import {
   Checkbox,
   ListItemText,
   Button,
-  Typography,
+  Paper,
 } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import TableContainer from "@mui/material/TableContainer";
-import Paper from "@mui/material/Paper";
 
 import * as Yup from "yup";
 
@@ -48,19 +47,16 @@ export default function FormComponent({ initialValues, onSubmit }) {
           <TableContainer
             sx={{
               marginTop: 1,
-              marginRight: "10%",
               justifyContent: "center",
               textAlign: "center",
               alignContent: "center",
-              backgroundColor: "#fcf5f5",
               margin: "3rem,3rem,3rem,3rem",
+              width:500,
+              height:300
             }}
             component={Paper}
           >
-            <Form>
-              <Typography sx={{ textAlign: "center" }}>
-                <h2>Fill up the form</h2>
-              </Typography>
+            <Form>  
               <Grid
                 sx={{
                   display: "grid",

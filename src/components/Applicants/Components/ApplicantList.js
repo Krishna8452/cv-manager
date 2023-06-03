@@ -34,6 +34,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Pagination from "@mui/material/Pagination";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -92,7 +93,7 @@ function ApplicantList() {
   const navigate = useNavigate();
   const [searchedData, setSearchedData] = useState("");
   const [list, setList] = useState([]);
-  const [offset, setOffset] = useState(10);
+  // const [offset, setOffset] = useState(10);
 
   useEffect(() => {
     fetchData();
@@ -103,8 +104,8 @@ function ApplicantList() {
       const response = await fetch("http://localhost:3031/applicants");
       const data = await response.json();
       var myList = data;
-      setList(data);
-      // const totaldata = data.length;
+      setList(myList);
+      // const totaldata = data.length;  
       // setTotalData(totaldata);
       // var pagesize = Math.ceil(totaldata / offset);
       // setPageSize(pagesize);
@@ -133,15 +134,14 @@ function ApplicantList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedItems, setPaginatedItems] = useState([]);
 
-  // const handleChange = (event, value) => {
-  //   debugger;
-  //   var currentPage = event.target.innerText;
-  //   setCurrentPage(currentPage);
-  //   var startRecord = Math.max(currentPage - 1, 0) * offset;
-  //   var endRecord = startRecord + offset;
-  //   var paginatedItems = list.slice(startRecord, endRecord);
-  //   setList(paginatedItems);
-  // };
+  const handleChange = (event, value) => {
+    // var currentPage2 = event.target.innerText;
+    // setCurrentPage(currentPage2);
+    // var startRecord = Math.max(currentPage - 1, 0) * offset;
+    // var endRecord = startRecord + offset;
+    // var paginatedItems = list.slice(startRecord, endRecord);
+    // setPaginatedItems(paginatedItems);
+  };
   const handleClickOpen = useCallback(
     (id) => {
       setStoreId(id);
@@ -154,6 +154,7 @@ function ApplicantList() {
   };
   function viewApplicant(id) {
     const applicantDetails = list.filter((data) => data.id === id);
+    console.log(applicantDetails,"app")
     setShowDetail(true);
     setDetails(applicantDetails);
     console.log(details, "aaaaa");
@@ -163,11 +164,12 @@ function ApplicantList() {
     setList((list) => list.filter((applicant) => applicant.id !== id));
     setOpen(false);
   }
+  console.log(list,'k va')
 
   return (
     <div style={{ height: "100%" }}>
       <TableContainer
-        sx={{ display: "flex", marginTop: 1, marginBottom:1 }}
+        sx={{ display: "flex", marginBottom:1 }}
         component={Paper}
       >
         <IconButton onClick={() => navigate("/dashboard")}>
@@ -308,13 +310,13 @@ function ApplicantList() {
                 </Button>
               </DialogActions>
             </Dialog>
-            {/* <Pagination
+            <Pagination
               siblingCount={1}
               boundaryCount={1}
               count={pageSize}
               onChange={handleChange}
               color="primary"
-            /> */}
+            />
           </TableContainer>
         </>
       )}

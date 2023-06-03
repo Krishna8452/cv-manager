@@ -1,4 +1,4 @@
-import {React} from "react";
+import {React, useState} from "react";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import {
   TextField,
@@ -17,6 +17,8 @@ import {
   ErrorMessage,
   useFormikContext,
 } from "formik";
+import Dialog from "@mui/material/Dialog";
+
 
 const validationSchema = Yup.object().shape({
   interviewers: Yup.array().min(1,'please select at lease one interviewers'),
@@ -29,9 +31,7 @@ export default function FormComponent({
   onSubmit,
   interviewers,
   applicants,
-}) {
-
-  
+}) {  
   return (
     <Formik
       initialValues={initialValues}
@@ -40,7 +40,8 @@ export default function FormComponent({
       enableReinitialize={true}
     >
       {({ errors, touched, Checkbox , ListItemText, values}) => (
-        <Form>
+       
+        <Form style={{width:500, height:500,marginTop:40}}>
           <Grid
             sx={{
               display: "grid",
@@ -66,7 +67,7 @@ export default function FormComponent({
             </Field>
 
 
-            <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
+            <FormControl sx={{ marginBottom: "16px", width: "400px", marginTop:"10px" }}>
               <InputLabel id="applicant-label">Select Applicant</InputLabel>
               <Field
                 as={Select}
@@ -83,7 +84,7 @@ export default function FormComponent({
               </Field>
               <ErrorMessage name="applicant" component="div" />
             </FormControl>
-            <DatePickerField name="date" label="Date" variant="standard" />
+            <DatePickerField  name="date" label="Date" variant="standard" />
             <TimePickerField name="time" label="Time" variant="standard" />
             <br />
             <Button type="submit" variant="contained" color="primary">
@@ -101,6 +102,7 @@ function DatePickerField({ name, label }) {
   return (
     <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
       <DatePicker
+        sx={{width:'400px'}}
         name={name}
         variant="standard"
         label={label}
@@ -120,6 +122,7 @@ function TimePickerField({ name, label }) {
   return (
     <FormControl sx={{ marginBottom: "16px", width: "300px" }}>
       <TimePicker
+       sx={{width:'400px'}}
         name={name}
         label={label}
         renderInput={(props) => <TextField {...props} />}

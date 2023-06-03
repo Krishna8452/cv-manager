@@ -10,8 +10,12 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  Dialog,
+  Typography,
+  Box,
 } from "@mui/material";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate, useParams } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TableContainer from "@mui/material/TableContainer";
@@ -27,6 +31,7 @@ const OfferLetterForm = () => {
 const {id}= useParams()
 const navigate =useNavigate()
   const [applicants, setApplicants] = useState([])
+  const [open, setOpen] = useState(true)
 
   useEffect(() => {
 
@@ -53,12 +58,14 @@ const navigate =useNavigate()
     console.log(values);
   };
   return (
-    <>
+    <Dialog open = {open}>
       <TableContainer sx={{display:'flex', marginTop: 1 }} component={Paper}>
+              
+        <Typography style={{ marginLeft:'34%'}}>Fill up the form</Typography>
+        <Box sx={{flexGrow:1}}/>
         <IconButton onClick={()=>navigate('/offerLetter')}>
-          <ArrowBackIcon/>
-        </IconButton>        
-        <h1 style={{ marginLeft:'34%'}}>Fill up the form</h1>
+          <CancelIcon/>
+        </IconButton>
       </TableContainer>
       <Formik
         initialValues={{
@@ -71,7 +78,7 @@ const navigate =useNavigate()
         onSubmit={handleSubmit}
       >
         {({ errors, touched, setFieldValue }) => (
-        <Form>
+        <Form style={{width:'600px', padding:'2rem', gap:2}}>
           <div>
             <label htmlFor="editor">Editor:</label>
             <Field name="editor">
@@ -121,7 +128,7 @@ const navigate =useNavigate()
         </Form>
 )}
       </Formik>
-    </>
+    </Dialog>
   );
 };
 

@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
-import { IconButton } from "@mui/material";
+import { IconButton, Dialog, Typography, Box, Divider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import AssessmentTestFormComponent from "./AssessmentTestFormComponent";
+import CancelIcon from "@mui/icons-material/Cancel";
+
+
 export default function AssessmentTestForm() {
   const navigate = useNavigate();
   const{id}=useParams()
   const [applicants, setApplicants] = useState([]);
   const [oldData, setOldData] = useState([]);
   const [editMode, setEditMode] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const initialValues = {
     applicant: "",
@@ -58,21 +62,21 @@ export default function AssessmentTestForm() {
   console.log(oldData, "kkk");
 
   return (
-    <>
-      <TableContainer
-        sx={{ display: "flex", marginTop: 1, marginBottom: 2 }}
-        component={Paper}
-      >
-        <IconButton onClick={() => navigate("/assessmentTest")}>
-          <ArrowBackIcon />
+    <>     
+      <Dialog open={open}>
+      <Box sx={{display:'flex'}}>
+        <Typography sx={{fontSize:40, marginTop:2, marginLeft:'5rem'}}>Fill the Form</Typography>
+        <Box sx={{flexGrow:1}}/>
+        <IconButton color={"red"} onClick={()=>navigate('/assessmentTest')} title="Cancel">
+          <CancelIcon />
         </IconButton>
-        <h1 style={{ marginLeft: "37%" }}> Fill up the Form. </h1>
-      </TableContainer>
+      </Box>
+      <Divider/>
       <AssessmentTestFormComponent
         initialValues={initialValues}
         applicants={applicants}
         onSubmit={handleSubmit}
-      />
+      /></Dialog>
     </>
   );
 }

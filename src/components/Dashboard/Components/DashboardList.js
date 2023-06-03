@@ -4,13 +4,13 @@ import Paper from "@mui/material/Paper";
 import { Box, Card, Grid, Button, Typography, makeStyles } from "@mui/material";
 import { Link } from "react-router-dom";
 import LegendChart from "./LegendChart";
-import { useState } from "react";
 
 export default function DashboardList({
   applicantList,
   interviewerList,
   interviewList,
   offerLetterList,
+  assessmentTest
 }) {
   const list = [
     {
@@ -33,25 +33,30 @@ export default function DashboardList({
       title: "Offer Letters",
       length: offerLetterList.length,
     },
+    {
+      route: "assessmentTest",
+      title: "Assessment Test",
+      length: assessmentTest.length,
+    },
   ];
   console.log(list, "list");
   return (
     <>
       <TableContainer
-        sx={{ textAlign: "center", marginTop: 1, marginBottom: 2 }}
+        sx={{ textAlign: "center", marginBottom: 2 }}
         component={Paper}
       >
         <h2>Main Dashboard</h2>
       </TableContainer>
       <Grid sx={{ display: "flex", gap: 2 }}>
-        <Grid sx={{ display: "flex", gap: 3, marginLeft: 1 }}>
+        <Grid sx={{ display: "flex", gap: 1, marginLeft: 1 }}>
           {list.map((list) => (
             <Card
               sx={{
                 height: 140,
                 width: 300,
                 bgcolor: "white",
-                borderRadius: 3,
+                borderRadius: 1,
               }}
               component={Paper}
             >
@@ -77,7 +82,7 @@ export default function DashboardList({
               </Box>
             </Card>
           ))}
-          <Grid>Hello</Grid>
+          <Grid></Grid>
         </Grid>
       </Grid>
       <TableContainer

@@ -69,8 +69,8 @@ export default function FormComponent({ initialValues, onSubmit }) {
               justifyContent: "center",
               textAlign: "center",
               alignContent: "center",
-              backgroundColor: "#fcf5f5",
               margin: "3rem,3rem,3rem,3rem",
+              paddingBottom:"3rem"
             }}
             component={Paper}
           >
@@ -295,7 +295,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                   alignItems: "center",
                 }}
               >
-                <Button size="large" type="submit" disabled={isSubmitting}>
+                <Button variant="outlined" size="large" type="submit" disabled={isSubmitting}>
                   Submit
                 </Button>
               </Grid>
