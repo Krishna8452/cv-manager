@@ -1,23 +1,6 @@
 {
   "applicants": [
     {
-      "firstName": "Beerav",
-      "middleName": "",
-      "lastName": "Bhattarai",
-      "email": "beerav@gmail.com",
-      "phoneNumber": "9800768098",
-      "level": "Associate",
-      "reference": "Friends",
-      "technology": [
-        "React"
-      ],
-      "experience": "77777",
-      "status": "shortListed",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\Home.docx",
-      "id": 5
-    },
-    {
       "firstName": "Poojan",
       "middleName": "",
       "lastName": "Bhattarai",
@@ -136,40 +119,6 @@
       "salary_expectation": "Rs: 20000",
       "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 8
-    },
-    {
-      "firstName": "Krishna",
-      "middleName": "dsdsd",
-      "lastName": "Chaudhary",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
-      "level": "Associate",
-      "reference": "sdxfcgvhjbnkml,",
-      "technology": [
-        "React"
-      ],
-      "experience": "likujhgfdsa",
-      "status": "shortListed",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 9
-    },
-    {
-      "firstName": "Krishna",
-      "middleName": "",
-      "lastName": "Chaudhary",
-      "email": "uniqkrimson100@gmail.com",
-      "phoneNumber": 9800768098,
-      "level": "Junior",
-      "reference": "sdxfcgvhjbnkml,",
-      "technology": [
-        "React"
-      ],
-      "experience": "likujhgfdsa",
-      "status": "shortListed",
-      "salary_expectation": "Rs: 20000",
-      "file": "C:\\fakepath\\Home.docx",
-      "id": 10
     }
   ],
   "interviewers": [
@@ -196,19 +145,15 @@
       "email": "uniqkrimson100@gmail.com",
       "position": "HR",
       "id": 7
+    },
+    {
+      "interviewerName": "krishna",
+      "email": "uniqkrimson100@gmail.com",
+      "position": "HR",
+      "id": 8
     }
   ],
   "interviews": [
-    {
-      "interviewers": [
-        1,
-        2
-      ],
-      "applicant": 3,
-      "date": "2023-05-09T18:15:00.000Z",
-      "time": "2023-05-26T20:25:00.465Z",
-      "id": 31
-    },
     {
       "interviewers": [
         1
@@ -278,12 +223,12 @@
     },
     {
       "interviewers": [
-        "3,6,5,4,4,7,4",
-        5
+        "5,4",
+        4
       ],
-      "applicant": 6,
-      "date": "2023-06-04T18:15:00.000Z",
-      "time": "2023-06-04T07:20:00.284Z",
+      "applicant": "6",
+      "date": "2023-06-15T18:15:00.000Z",
+      "time": "2023-06-09T06:25:00.075Z",
       "id": 39
     }
   ],
@@ -343,17 +288,29 @@
   "templateLetters": [
     {
       "name": "Krishna",
-      "template": "ddfdfdf",
       "subject": "dfdfdf",
       "body": "dfdfdfd",
       "id": 3
     },
     {
       "name": "sxd",
-      "template": "sdsds",
       "subject": "sdsd",
       "body": "dsdsds",
       "id": 4
+    }
+  ],
+  "positions": [
+    {
+      "position": "HR",
+      "id": 3
+    },
+    {
+      "position": "CEO",
+      "id": 4
+    },
+    {
+      "position": "Junior",
+      "id": 5
     }
   ]
 }

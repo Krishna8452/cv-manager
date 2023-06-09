@@ -50,10 +50,7 @@ export default function InterviewList() {
       console.log("Error fetching data:", error);
     }
   };
-  {
     console.log(interviewList, "hhh");
-  }
-
   const handleClickOpen = useCallback(
     (id) => {
       setStoreId(id);
@@ -80,7 +77,6 @@ export default function InterviewList() {
   );
     setOpen(false);
   }
-
   return (
     <>
       <TableContainer sx={{display:'flex', marginTop: 1 }} component={Paper}>

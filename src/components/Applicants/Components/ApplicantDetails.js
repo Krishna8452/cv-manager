@@ -136,9 +136,9 @@ export const ApplicantDetails = ({ details, onClick }) => {
       </TableContainer>
 
       <Divider />
-      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:2}}>
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:4,gap:4}}>
         <TableContainer
-          sx={{ height: 275, width: "33%" }}
+          sx={{marginLeft: 2, height: 275, width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -154,7 +154,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
         </TableContainer>
 
         <TableContainer
-          sx={{ marginLeft: 2, height: 275,  width: "33%" }}
+          sx={{ marginLeft: 2, height: 275,  width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
@@ -174,12 +174,12 @@ export const ApplicantDetails = ({ details, onClick }) => {
         </TableContainer>
 
         <TableContainer
-          sx={{ marginLeft: 2, height: 275, width: "33%" }}
+          sx={{ marginLeft: 2, height: 275, width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
             <Box sx={{display:'flex'}}>
-              <h2 style={{marginLeft:'9rem'}}>Offer Letter</h2>
+              <h2 style={{marginLeft:'8rem'}}>Offer Letter</h2>
               <Box sx={{flexGrow:1}}/>
               {offerLetter && <Button
                 sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
@@ -221,14 +221,14 @@ export const ApplicantDetails = ({ details, onClick }) => {
 
         </TableContainer>
       </Box>
-      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:1, gap:2}}>
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:4,gap:4}}>
       <TableContainer
-          sx={{ height: 275,  width: "33%" }}
+          sx={{marginLeft: 2, height: 275,  width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
             <Box sx={{display:'flex'}}>
-              <h2 style={{marginLeft:'9rem'}}> Interview</h2>
+              <h2 style={{marginLeft:'8rem'}}> Interview</h2>
               <Box sx={{flexGrow:1}}/>
               {interview && <Button
                 sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
@@ -270,15 +270,15 @@ export const ApplicantDetails = ({ details, onClick }) => {
           
         </TableContainer>
         <TableContainer
-          sx={{ height: 275,  width: "33%" }}
+          sx={{marginLeft: 2, height: 275,  width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
             <Box sx={{display:'flex'}}>
-              <h2 style={{marginLeft:'9rem'}}> Assessment Test</h2>
+              <h2 style={{marginLeft:'7rem'}}> Assessment Test</h2>
               <Box sx={{flexGrow:1}}/>
               {assessmentTest && <Button
-                sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}
+                sx={{marginTop:'0.5rem', height:"1.5rem", }}
                 color="success"
                 size="small"
                 variant="outlined"
@@ -315,12 +315,12 @@ export const ApplicantDetails = ({ details, onClick }) => {
           
         </TableContainer>
         <TableContainer
-          sx={{ height: 275,  width: "33%" }}
+          sx={{marginLeft: 2, height: 275,  width: "30%" }}
           component={Paper}
         >
           <Box sx={{ marginLeft: 2, textAlign: "center" }}>
             <Box sx={{display:'flex'}}>
-              <h2 style={{marginLeft:'9rem'}}> Interview</h2>
+              <h2 style={{marginLeft:'8rem'}}> Interview</h2>
               <Box sx={{flexGrow:1}}/>
               {interview && <Button
                 sx={{marginTop:'0.5rem', height:"1.5rem", marginRight:"1rem"}}

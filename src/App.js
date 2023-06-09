@@ -24,6 +24,8 @@ import AssessmentTestForm from "./components/AssessmentTest/Components/Assessmen
 import ApplicantList from "./components/Applicants/Components/ApplicantList";
 import { TemplateLetter } from "./components/TemplateLetter/Pages/TemplateLetter";
 import TemplateLetterForm from "./components/TemplateLetter/Components/TemplateLetterForm";
+import PositionFormComponent from "./components/Position/Components/PositionFormComponent";
+import { PositionList } from "./components/Position/Components/PositionList";
 function App() {
   return (
     <ProSidebarProvider>
@@ -207,6 +209,36 @@ function App() {
         />
         <Route
           path="/templateLetter/detail/:id"
+          element={
+            <Account>
+            </Account>
+          }         
+        />
+        <Route
+          path="/position"
+          element={
+            <Account>
+              <PositionList/>
+            </Account>
+          }         
+        />
+                <Route
+          path="/position/create"
+          element={
+            <Account>
+              <PositionFormComponent/>
+            </Account>
+          }         
+        />
+        <Route
+          path="/positin/detail/:id"
+          element={
+            <Account>
+            </Account>
+          }         
+        />
+         <Route
+          path="/positin/edit/:id"
           element={
             <Account>
             </Account>

@@ -1,12 +1,10 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import {
   TextField,
   Select,
   MenuItem,
   InputLabel,
   Grid,
-  Checkbox,
-  ListItemText,
   Button,
   Paper,
 } from "@mui/material";
@@ -18,14 +16,29 @@ import * as Yup from "yup";
 const validationSchema = Yup.object().shape({
   interviewerName: Yup.string().required("Full Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  position: Yup.string().required("Position is required"),
+  //  position: Yup.string().required("Position is required"),
 });
 
 export default function FormComponent({ initialValues, onSubmit }) {
   console.log(initialValues, "final");
+  const [list,setList] = useState()
 
-  const position = ["HR", "Junior", "Associate", "Senior"];
+  
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:3031/positions");
+      const data = await response.json();
+      setList(data);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+console.log(list,"p")
   return (
     <>
       <Formik
@@ -52,7 +65,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
               alignContent: "center",
               margin: "3rem,3rem,3rem,3rem",
               width:500,
-              height:300
+              height:350
             }}
             component={Paper}
           >
@@ -95,27 +108,30 @@ export default function FormComponent({ initialValues, onSubmit }) {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <InputLabel id="level-label">Position</InputLabel>
+                  <InputLabel id="position-label">Position</InputLabel>
                   <Field
                     as={Select}
-                    labelId="Position-label"
+                    labelId="position-label"
                     name="position"
                     variant="standard"
                     error={touched.position && !!errors.position}
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    value= {values.position}
                   >
-                    {position.map((level) => (
-                      <MenuItem key={level} value={level}>
-                        {level}
+                    {list && list.length>0 && list.map((position) => (
+                      <MenuItem key={position.id} value={position.position}>
+                        {position.position}
                       </MenuItem>
                     ))}
                   </Field>
-                  {touched.level && (
-                    <ErrorMessage name="level" component="div" />
+                  {touched.position && (
+                    <ErrorMessage name="position" component="div" />
                   )}
                 </Grid>
+
+
               </Grid>
 
                   <Button size="large" type="submit" disabled={isSubmitting}>
