@@ -119,15 +119,27 @@
       "salary_expectation": "Rs: 20000",
       "file": "C:\\fakepath\\CV Manager SRS (3).docx",
       "id": 8
+    },
+    {
+      "firstName": "Krishna",
+      "middleName": "chand",
+      "lastName": "Chaudhary",
+      "email": "uniqkrimson100@gmail.com",
+      "phoneNumber": "9800768098",
+      "level": "Associate",
+      "reference": "friends",
+      "technology": [
+        "React",
+        "Node.js"
+      ],
+      "experience": "likujhgfdsa",
+      "status": "second_interview",
+      "salary_expectation": "Rs: 20000",
+      "file": "C:\\fakepath\\Krishna's Resume (4).pdf",
+      "id": 9
     }
   ],
   "interviewers": [
-    {
-      "interviewerName": "Bijay Kandel",
-      "email": "uniqkrimson100@gmail.com",
-      "position": "Associate",
-      "id": 4
-    },
     {
       "interviewerName": "Dipendra Karki",
       "email": "dipendra@gmail.com",
@@ -145,146 +157,19 @@
       "email": "uniqkrimson100@gmail.com",
       "position": "HR",
       "id": 7
-    },
-    {
-      "interviewerName": "krishna",
-      "email": "uniqkrimson100@gmail.com",
-      "position": "HR",
-      "id": 8
     }
   ],
-  "interviews": [
-    {
-      "interviewers": [
-        1
-      ],
-      "applicant": 4,
-      "date": "2023-05-08T18:15:00.000Z",
-      "time": "2023-05-27T07:20:00.050Z",
-      "id": 32
-    },
-    {
-      "interviewers": [
-        4,
-        3
-      ],
-      "applicant": 2,
-      "date": "2023-05-01T18:15:00.000Z",
-      "time": "2023-05-29T08:25:00.992Z",
-      "id": 33
-    },
-    {
-      "interviewers": [
-        3,
-        4
-      ],
-      "applicant": 7,
-      "date": "2023-05-29T18:15:00.000Z",
-      "time": "2023-05-31T03:15:00.637Z",
-      "id": 34
-    },
-    {
-      "interviewers": [
-        4
-      ],
-      "applicant": 2,
-      "date": "2023-06-07T18:15:00.000Z",
-      "time": "2023-05-31T19:20:00.497Z",
-      "id": 35
-    },
-    {
-      "interviewers": [
-        4,
-        5
-      ],
-      "applicant": 5,
-      "date": "2023-06-06T18:15:00.000Z",
-      "time": "2023-05-31T19:30:00.236Z",
-      "id": 36
-    },
-    {
-      "interviewers": [
-        3,
-        7
-      ],
-      "applicant": 9,
-      "date": "2023-06-14T18:15:00.000Z",
-      "time": "2023-06-02T18:15:00.112Z",
-      "id": 37
-    },
-    {
-      "interviewers": [
-        3
-      ],
-      "applicant": 3,
-      "date": "2023-06-05T18:15:00.000Z",
-      "time": "2023-06-03T22:15:00.692Z",
-      "id": 38
-    },
-    {
-      "interviewers": [
-        "5,4",
-        4
-      ],
-      "applicant": "6",
-      "date": "2023-06-15T18:15:00.000Z",
-      "time": "2023-06-09T06:25:00.075Z",
-      "id": 39
-    }
-  ],
+  "interviews": [],
   "offerLetters": [
     {
-      "editor": "<p>&nbsp;ddvx</p>",
-      "status": "dfdfd",
+      "editor": "<p>XSDSWS</p>",
+      "status": "DSDSDSD",
       "applicant": 2,
-      "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
-      "id": 2
-    },
-    {
-      "editor": "<p>ffff</p>",
-      "status": "ffff",
-      "applicant": 5,
-      "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
-      "id": 3
-    },
-    {
-      "editor": "<p>dsdsd</p>",
-      "status": "sdsdsd",
-      "applicant": 3,
-      "letterFile": "C:\\fakepath\\CV Manager SRS (4).docx",
-      "id": 4
-    },
-    {
-      "editor": "<p>sdffddf</p>",
-      "status": "Hired",
-      "applicant": 6,
       "letterFile": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 5
+      "id": 1
     }
   ],
-  "assessmentTest": [
-    {
-      "applicant": 2,
-      "title": "Third Assessmennt",
-      "evaluation": "Poor",
-      "document": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 2
-    },
-    {
-      "applicant": 9,
-      "title": "fdfdf",
-      "evaluation": "Poor",
-      "document": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 3
-    },
-    {
-      "applicant": 2,
-      "title": "scdfdf",
-      "evaluation": "Very Poor",
-      "document": "C:\\fakepath\\CV Manager SRS (3).docx",
-      "id": 4
-    }
-  ],
+  "assessmentTest": [],
   "templateLetters": [
     {
       "name": "Krishna",
@@ -307,10 +192,6 @@
     {
       "position": "CEO",
       "id": 4
-    },
-    {
-      "position": "Junior",
-      "id": 5
     }
   ]
 }

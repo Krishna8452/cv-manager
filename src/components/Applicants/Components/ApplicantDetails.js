@@ -80,7 +80,7 @@ export const ApplicantDetails = ({ details, onClick }) => {
     console.log("Error fetching data:", error);
     }
   };
-  console.log(assessmentTest, "hrr");
+  console.log(interview, "hrr");
 
   return (
     <>
@@ -244,6 +244,8 @@ export const ApplicantDetails = ({ details, onClick }) => {
             {interview ? (
               <>
                 <Typography>Interviewers: {interview.interviewers?.map((list)=>{return<>{list}</>})}</Typography>
+                <Typography>Applicant:{interview.applicant}</Typography>
+
                 <Typography>Date: {interview.date}</Typography>
                 <Typography>
                   Time : {interview.time}
@@ -365,4 +367,4 @@ export const ApplicantDetails = ({ details, onClick }) => {
       </Box>  
     </>
   );
-};
+}; 

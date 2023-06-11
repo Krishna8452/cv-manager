@@ -43,13 +43,13 @@ export default function DashboardList({
   return (
     <>
       <TableContainer
-        sx={{ textAlign: "center", marginBottom: 2 }}
+        sx={{ display:'flex', justifyContent:'center', alignItems:'center',height:'4.5rem', marginBottom:2}}
         component={Paper}
       >
-        <h2>Main Dashboard</h2>
+      <h2>Main Dashboard</h2> 
       </TableContainer>
-      <Grid sx={{ display: "flex", gap: 2 }}>
-        <Grid sx={{ display: "flex", gap: 1, marginLeft: 1 }}>
+      <Grid sx={{ display: "flex", padding:1 }}>
+        <Grid sx={{ display: "flex", gap: 4}}>
           {list.map((list) => (
             <Card
               sx={{

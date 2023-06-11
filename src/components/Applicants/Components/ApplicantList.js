@@ -167,16 +167,16 @@ function ApplicantList() {
   console.log(list,'k va')
 
   return (
-    <div style={{ height: "100%" }}>
+    <Box style={{ height: "100%" }}>
       <TableContainer
-        sx={{ display: "flex", marginBottom:1 }}
+        sx={{ display: "flex", justifyContent:'center', alignItems:'center', height:'4.5rem'}}
         component={Paper}
       >
         <IconButton onClick={() => navigate("/dashboard")}>
           <ArrowBackIcon />
         </IconButton>
 
-        <h2 style={{ marginLeft: "37%" }}> Applicant List</h2>
+        <h2 style={{ marginLeft: "40%"}}> Applicant List</h2>
         <Box sx={{ flexGrow: 1 }} />
         <Box>
           <Search
@@ -200,6 +200,7 @@ function ApplicantList() {
             />
           </Search>
         </Box>
+        <Box sx={{marginRight:'1%', marginLeft:'1%'}}>
         <Link to="/applicant/create">
           <IconButton sx={{ color: green[500], textAlign: "right" }}>
             <Icon title="create" fontSize="large">
@@ -207,6 +208,7 @@ function ApplicantList() {
             </Icon>
           </IconButton>
         </Link>
+        </Box>
       </TableContainer>
 
       {showDetail && (
@@ -320,7 +322,7 @@ function ApplicantList() {
           </TableContainer>
         </>
       )}
-    </div>
+    </Box>
   );
 }
 export default ApplicantList;

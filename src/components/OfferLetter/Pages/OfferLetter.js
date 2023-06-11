@@ -15,15 +15,15 @@ export default function OfferLetter(){
   const navigate =useNavigate()
   return (
   <>
-    <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>
+    <TableContainer sx={{ display: "flex", justifyContent:'center', alignItems:'center', height:'4.5rem'}} component={Paper}>
       <IconButton onClick={()=>navigate('/dashboard')}>
           <ArrowBackIcon/>
       </IconButton>
-      <h1 style={{ marginLeft: "34%" }}>
+      <h2 style={{ marginLeft: "40%" }}>
         Offer Letter List
-      </h1>
+      </h2>
       <Box sx={{flexGrow:1}}/>
-      <IconButton onClick={()=>navigate("/offerLetter/create")} sx={{ color: green[500], textAlign: "right" }}>
+      <IconButton onClick={()=>navigate("/offerLetter/create")} sx={{marginRight:'1%', color: green[500], textAlign: "right" }}>
         <Icon title="create" fontSize="large">
           add_circle
         </Icon>

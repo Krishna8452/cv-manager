@@ -79,23 +79,21 @@ export default function InterviewList() {
   }
   return (
     <>
-      <TableContainer sx={{display:'flex', marginTop: 1 }} component={Paper}>
+      <TableContainer sx={{display:'flex', justifyContent:'center',alignItems:'center', height:'4.5rem' }} component={Paper}>
         <IconButton onClick={()=>navigate('/dashboard')}>
           <ArrowBackIcon/>
         </IconButton>
-        <h1 style={{ marginLeft: "37%" }}>Interview List</h1>
+        <h2 style={{ marginLeft: "40%" }}>Interview List</h2>
         <Box sx={{ flexGrow: 1 }}/>
-        <Box sx={{ marginLeft: "15px", display: "flex" }}>
-   
+        <Box sx={{ marginRight:'1%'}}>  
             <IconButton onClick={()=>navigate('/interview/create')}>
               <Icon
-                sx={{ color: green[500], textAlign: "right" }}
+                sx={{color: green[500]}}
                 fontSize="large"
               >
                 add_circle
               </Icon>
-            </IconButton>
-         
+            </IconButton>        
         </Box>
       </TableContainer>
       {detailMode &&
