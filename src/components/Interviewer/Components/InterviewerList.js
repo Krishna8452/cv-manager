@@ -83,24 +83,22 @@ export default function InterviewerList() {
   console.log(details, "details");
   return (
     <>
-      <TableContainer sx={{ display: "flex", marginTop: 1 }} component={Paper}>
+      <TableContainer sx={{ display: "flex", justifyContent:"center", alignItems:'center',height:'4.5rem'}} component={Paper}>
         <IconButton onClick={() => navigate("/dashboard")}>
           <ArrowBackIcon />
         </IconButton>
-        <>
-          <h1 style={{ marginLeft: "34%" }}>Interviewer List</h1>
+        
+          <h2 style={{marginLeft:'40%'}}>Interviewer List</h2>
 
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Box sx={{ marginLeft: "15px", display: "flex" }}>
+            <Box sx={{ flexGrow: 1 }} />
             <Search
               sx={{
-                borderColor: "red",
+                height: "45px",
+                border: "2px",
                 borderRadius: "15px",
-                justifyContent: "center",
-                alignContent: "center",
-                height: "3rem",
-                marginTop: 4,
+                justifyContent: "right",
+                alignContent: "right",
+                alignItems: "right",
               }}
             >
               <SearchIconWrapper>
@@ -113,17 +111,17 @@ export default function InterviewerList() {
                 sx={{ justifyContent: "center", left: 15 }}
               />
             </Search>
+            <Box sx={{marginRight:'1%', marginLeft:'1%'}}>
+              <IconButton onClick={() => navigate("/interviewer/create")}>
+                <Icon
+                  sx={{ color: green[500], textAlign: "right" }}
+                  fontSize="large"
+                >
+                  add_circle
+                </Icon>
+              </IconButton>
+            </Box>
 
-            <IconButton onClick={() => navigate("/interviewer/create")}>
-              <Icon
-                sx={{ color: green[500], textAlign: "right" }}
-                fontSize="large"
-              >
-                add_circle
-              </Icon>
-            </IconButton>
-          </Box>
-        </>
       </TableContainer>
       <Modal
         open={detailMode}
@@ -140,7 +138,6 @@ export default function InterviewerList() {
                 border: "2px",
                 justifyContent: "center",
                 alignItem: "center",
-                gap: "3rem",
               }}
             >
               <Link to={`/experience/edit/${details.id}`}>

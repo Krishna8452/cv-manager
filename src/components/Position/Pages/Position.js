@@ -1,8 +1,9 @@
 import React from 'react'
+import { PositionList } from '../Components/PositionList'
 
 const Position = () => {
   return (
-    <div>Position</div>
+    <><PositionList/></>
   )
 }
 export default Position

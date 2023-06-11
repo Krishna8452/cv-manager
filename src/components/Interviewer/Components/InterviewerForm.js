@@ -37,7 +37,7 @@ const InterviewerForm = () => {
    },
   [id])
   const handleSubmit = (values, { setSubmitting }) => {
-    caches.log('jell')
+    console.log(values,'jell')
       //localStorage.setItem('applicantList', JSON.stringify([values]))   
       if(id){
         console.log(values,'yes')

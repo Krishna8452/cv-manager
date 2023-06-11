@@ -82,7 +82,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                 sx={{
                   display: "grid",
                   gridTemplateColumns: "repeat(3, 2fr)",
-                  columnGap: "0px",
+                  columnGap: "4px",
                 }}
               >
                 <Grid item xs={12}>
@@ -91,7 +91,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="firstName"
                     type="text"
                     label="First Name"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.firstName && !!errors.firstName}
                     helperText={touched.firstName && errors.firstName}
@@ -104,7 +104,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="middleName"
                     label="Middle Name"
                     type="text"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.middleName && !!errors.middleName}
                     helperText={touched.middleName && errors.middleName}
@@ -119,7 +119,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="lastName"
                     type="text"
                     label="Last Name"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.lastName && !!errors.lastName}
                     helperText={touched.lastName && errors.lastName}
@@ -133,7 +133,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="email"
                     label="Email"
                     type="email"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.email && !!errors.email}
                     helperText={touched.email && errors.email}
@@ -147,7 +147,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="phoneNumber"
                     label="Phone Number"
                     type="number"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.phoneNumber && !!errors.phoneNumber}
                     helperText={touched.phoneNumber && errors.phoneNumber}
@@ -161,7 +161,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="reference"
                     label="Reference"
                     type="text"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.reference && !!errors.reference}
                     helperText={touched.reference && errors.reference}
@@ -175,7 +175,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="salary_expectation"
                     label="Expected Salary"
                     type="text"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={
                       touched.salary_expectation && !!errors.salary_expectation
@@ -193,7 +193,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     name="experience"
                     label="Experience"
                     type="text"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.experience && !!errors.experience}
                     helperText={touched.experience && errors.experience}
@@ -207,7 +207,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     as={Select}
                     labelId="level-label"
                     name="level"
-                    variant="standard"
+                    variant="outlined"
                     error={touched.level && !!errors.level}
                     value={values.level}
                     sx={{ marginBottom: "16px", width: "20rem" }}
@@ -231,7 +231,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     labelId="technologies-label"
                     name="technology"
                     multiple
-                    variant="standard"
+                    variant="outlined"
                     onChange={handleChange}
                     error={touched.technology && !!errors.technology}
                     onBlur={handleBlur}
@@ -257,7 +257,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                     as={Select}
                     labelId="status-label"
                     name="status"
-                    variant="standard"
+                    variant="outlined"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -276,8 +276,7 @@ export default function FormComponent({ initialValues, onSubmit }) {
                   <Field
                     as={TextField}
                     name="file"
-                    label="Upload file"
-                    variant="standard"
+                    variant="outlined"
                     type="file"
                     sx={{ marginBottom: "16px", width: "20rem" }}
                     error={touched.file && !!errors.file}
