@@ -36,11 +36,18 @@ export const ApplicantDetails = ({ details, onClick }) => {
   }, []);
 
   const fetchData = async () => {
+
     try{
       const response = await fetch(
       `http://localhost:3031/offerLetters`
     );
     if(response.status !== 404) {
+
+    try {
+      const response = await fetch(
+        `http://localhost:3031/offerLetters/${detail.id}`
+      );
+
       const data = await response.json();
       const applicantOffer = data.filter((data)=>data.applicant===detail.id)
       console.log(applicantOffer,'appoffer')
@@ -89,6 +96,10 @@ export const ApplicantDetails = ({ details, onClick }) => {
         component={Paper}
       >
         <Box sx={{ marginBottom: 1, width: "105%",marginTop:1 }}>
+        sx={{ display: "flex", paddingTop: 2, paddingBottom: 2 }}
+        component={Paper}
+      >
+        <Box sx={{ marginBottom: 1, width: "90%" }}>
           <Stepper activeStep={steps.indexOf(detail.status)} alternativeLabel>
             {steps.map((step, index) => (
               <Step key={index}>
@@ -137,6 +148,8 @@ export const ApplicantDetails = ({ details, onClick }) => {
 
       <Divider />
       <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:4,gap:4}}>
+      <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:2}}>
+      <Box sx={{ display: "flex" }}>
         <TableContainer
           sx={{marginLeft: 2, height: 275, width: "30%" }}
           component={Paper}
@@ -220,6 +233,21 @@ export const ApplicantDetails = ({ details, onClick }) => {
           </Box>
 
         </TableContainer>
+        {offerLettersList && (
+          <TableContainer
+            sx={{ marginLeft: 2, height: 300, marginTop: 3, width: "30%" }}
+            component={Paper}
+          >
+            <Box sx={{ marginLeft: 2, textAlign: "center" }}>
+              <h1>Offer Letter</h1>
+              <Typography>editor: {offerLettersList.editor}</Typography>
+              <Typography>Status: {offerLettersList.status}</Typography>
+              <Typography>
+                Letter File: {offerLettersList.letterFile}
+              </Typography>
+            </Box>
+          </TableContainer>
+        )}
       </Box>
       <Box sx={{ display: "flex", justifyContent:'center', alignItems:'center', marginTop:2, marginBottom:4,gap:4}}>
       <TableContainer
